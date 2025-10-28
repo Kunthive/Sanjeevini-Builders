@@ -34,11 +34,13 @@ export default function Navigation() {
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-3 bg-primary text-primary-foreground rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-110"
+          className={`p-3 rounded-xl bg-white/80 backdrop-blur shadow-sm text-foreground transition-all duration-300 aria-[expanded=true]:shadow-md aria-[expanded=true]:bg-white ${
+            isOpen ? "rotate-90" : "rotate-0"
+          }`}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
-          {isOpen ? <Icons.X size={24} /> : <Icons.Menu size={24} />}
+          {isOpen ? <Icons.X size={22} /> : <Icons.Menu size={22} />}
         </button>
       </div>
 
@@ -72,25 +74,60 @@ export default function Navigation() {
 
       {isOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
-          <div className="absolute top-20 left-4 right-4 bg-white rounded-lg shadow-2xl p-6 space-y-4 animate-fade-in-up">
-            {navLinks.map((link) => (
+          {/* Backdrop */}
+          <button
+            aria-label="Close menu"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          />
+
+          {/* Bottom Sheet */}
+          <div className="absolute inset-x-0 bottom-0 rounded-t-2xl bg-white shadow-2xl p-6 pt-3 safe-bottom animate-slide-up">
+            <div className="mx-auto h-1 w-12 rounded-full bg-muted mb-4" />
+
+            <div className="space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block px-4 py-4 text-foreground/90 hover:bg-muted rounded-xl transition-colors font-medium text-base"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-3">
               <Link
-                key={link.href}
-                href={link.href}
-                className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors font-medium"
+                href="/projects"
+                className="px-4 py-3 rounded-xl bg-accent text-accent-foreground text-center font-semibold"
                 onClick={() => setIsOpen(false)}
               >
-                {link.label}
+                Explore Projects
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="block px-4 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity text-center font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Get In Touch
-            </Link>
+              <Link
+                href="/contact"
+                className="px-4 py-3 rounded-xl bg-primary text-primary-foreground text-center font-semibold"
+                onClick={() => setIsOpen(false)}
+              >
+                Get In Touch
+              </Link>
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-4 text-muted-foreground">
+              <span className="text-xs">Quick contact:</span>
+              <a href="tel:+919876543210" className="px-3 py-2 rounded-lg border hover:bg-muted transition-colors text-sm">Call</a>
+              <a
+                href="https://wa.me/919876543210?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-2 rounded-lg border hover:bg-muted transition-colors text-sm"
+                onClick={() => setIsOpen(false)}
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       )}
