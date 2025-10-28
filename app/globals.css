@@ -232,6 +232,22 @@ html {
   }
 }
 
+/* WhatsApp FAB glow */
+@keyframes fabGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6), 0 8px 24px rgba(34, 197, 94, 0.45);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(34, 197, 94, 0), 0 12px 32px rgba(34, 197, 94, 0.55);
+    transform: scale(1.05);
+  }
+}
+
+.animate-fab-glow {
+  animation: fabGlow 2.2s ease-in-out infinite;
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -333,7 +349,8 @@ main {
   .animate-slide-up,
   .animate-scale-in,
   .animate-glow,
-  .animate-float {
+  .animate-float,
+  .animate-fab-glow {
     animation: none !important;
   }
 }

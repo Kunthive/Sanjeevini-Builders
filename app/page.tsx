@@ -218,10 +218,11 @@ export default function Home() {
         href="https://wa.me/919876543210?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 z-40 flex items-center justify-center animate-pulse-subtle"
+        className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 z-40 flex items-center justify-center animate-fab-glow"
         title="Chat with us on WhatsApp"
       >
         <Icons.MessageCircle size={28} />
+        <span className="absolute -z-10 inset-0 rounded-full ring-2 ring-green-400/40" />
       </a>
     </main>
   )
