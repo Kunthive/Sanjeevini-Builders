@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Icons } from "./icons"
+import { usePathname } from "next/navigation"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>("home")
+  const pathname = usePathname()
 
   useEffect(() => {
     if (typeof document === "undefined") return
@@ -16,37 +17,14 @@ export default function Navigation() {
     }
   }, [isOpen])
 
-  // Solid header, with active section tracking for approachable nav buttons
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    const sectionIds = ["home", "about", "projects", "why", "contact"]
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[]
-
-    if (elements.length === 0) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      { root: null, rootMargin: "0px", threshold: 0.5 },
-    )
-
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+  // Solid header; highlight based on current route
 
   const navLinks = [
-    { href: "/#home", label: "Home" },
-    { href: "/#about", label: "About" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#why", label: "Why Us" },
-    { href: "/#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/team", label: "Team" },
+    { href: "/contact", label: "Contact" },
   ]
 
   return (
@@ -65,8 +43,10 @@ export default function Navigation() {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => {
-              const id = link.href.split("#")[1]
-              const isActive = id === activeSection
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href + "/")
               return (
                 <Link
                   key={link.href}
@@ -124,8 +104,10 @@ export default function Navigation() {
 
             <div className="space-y-2">
               {navLinks.map((link) => {
-                const id = link.href.split("#")[1]
-                const isActive = id === activeSection
+                const isActive =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname === link.href || pathname.startsWith(link.href + "/")
                 return (
                   <Link
                     key={link.href}
