@@ -97,7 +97,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
-                    <p className="text-foreground/70">Indiranagar, Bangalore, India</p>
+                    <p className="text-foreground/70">
+                      #28, 3rd Floor, 27th Main,
+                      <br />
+                      1st Stage, BTM Layout,
+                      <br />
+                      Bengaluru 560068
+                    </p>
                   </div>
                 </div>
 
@@ -108,9 +114,14 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:+919876543210" className="text-foreground/70 hover:text-primary transition-colors">
-                      +91 98765 43210
-                    </a>
+                    <div className="flex flex-col text-foreground/70">
+                      <a href="tel:+919481545865" className="hover:text-primary transition-colors">
+                        9481545865
+                      </a>
+                      <a href="tel:+918073365694" className="hover:text-primary transition-colors">
+                        8073365694
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -130,6 +141,7 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* WhatsApp */}
                 <div className="flex gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
                     <Icons.MessageCircle className="text-primary" size={24} />
@@ -137,12 +149,12 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">WhatsApp</h3>
                     <a
-                      href="https://wa.me/919876543210?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+                      href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground/70 hover:text-primary transition-colors"
                     >
-                      +91 98765 43210
+                      8867301822
                     </a>
                   </div>
                 </div>
@@ -211,7 +223,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background"
-                      placeholder="+91 98765 43210"
+                      placeholder="9481545865"
                     />
                   </div>
 
@@ -297,7 +309,7 @@ export default function Contact() {
               height="100%"
               frameBorder="0"
               title="Sanjeevini Builders Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5721849999997!2d77.6245!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1d0c0c0c0c0d%3A0x0!2sIndiranagar%2C%20Bangalore!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5721849999997!2d77.6245!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1d0c0c0c0c0d%3A0x0!2sBTM%20Layout%2C%20Bengaluru%20560068!5e0!3m2!1sen!2sin!4v1234567890"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -307,10 +319,10 @@ export default function Contact() {
       </section>
 
       <a
-        href="https://wa.me/919876543210?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+        href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 z-40 flex items-center justify-center animate-pulse-subtle"
+        className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 z-40 flex items-center justify-center animate-pulse-subtle"
         title="Chat with us on WhatsApp"
       >
         <Icons.MessageCircle size={28} />
