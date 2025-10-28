@@ -322,3 +322,18 @@ select:focus {
 main {
   animation: pageEnter 0.4s ease-out;
 }
+
+/* Safe area helpers */
+.safe-top { padding-top: max(env(safe-area-inset-top), 1rem); }
+.safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 1rem); }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-slide-up,
+  .animate-scale-in,
+  .animate-glow,
+  .animate-float {
+    animation: none !important;
+  }
+}
