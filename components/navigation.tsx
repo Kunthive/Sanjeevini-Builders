@@ -6,7 +6,6 @@ import { Icons } from "./icons"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [hasScrolled, setHasScrolled] = useState(false)
 
   useEffect(() => {
     if (typeof document === "undefined") return
@@ -16,77 +15,65 @@ export default function Navigation() {
     }
   }, [isOpen])
 
-  // Detect scroll to control mobile logo visibility
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    const onScroll = () => {
-      setHasScrolled(window.scrollY > 0)
-    }
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+  // Solid header, no scroll-based visual changes
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/team", label: "Team" },
-    { href: "/contact", label: "Contact" },
+    { href: "/#home", label: "Home" },
+    { href: "/#about", label: "About" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#why", label: "Why Us" },
+    { href: "/#contact", label: "Contact" },
   ]
 
   return (
     <>
-      {/* Mobile header bar */}
-      <div className="fixed top-4 left-4 right-4 z-40 md:hidden rounded-xl bg-background/60 supports-[backdrop-filter]:bg-background/40 backdrop-blur border border-border/50 shadow-sm px-3 py-2 flex items-center justify-between">
-        <Link
-          href="/"
-          className={`flex items-center gap-2 transition-opacity duration-200 ${hasScrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-        >
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">S</span>
-          </div>
-          <span className="font-bold text-lg text-primary">Sanjeevini</span>
-        </Link>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`p-3 rounded-xl bg-background/70 supports-[backdrop-filter]:bg-background/50 backdrop-blur shadow-sm text-foreground transition-all duration-300 aria-[expanded=true]:shadow-md aria-[expanded=true]:bg-background ${
-            isOpen ? "rotate-90" : "rotate-0"
-          }`}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <Icons.X size={22} /> : <Icons.Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Desktop brand */}
-      <Link href="/" className="fixed top-6 left-6 z-40 items-center gap-2 group hidden md:flex">
-        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-          <span className="text-primary-foreground font-bold text-lg">S</span>
-        </div>
-        <span className="font-bold text-lg text-primary">Sanjeevini</span>
-      </Link>
-
-      {/* Desktop nav */}
-      <nav className="hidden md:flex fixed top-6 right-6 z-40 gap-8 items-center">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-foreground hover:text-primary transition-colors text-sm font-medium relative group"
-          >
-            {link.label}
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
+      {/* Global fixed header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
+          {/* Brand */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold">S</span>
+            </div>
+            <span className="font-bold text-lg text-primary">Sanjeevini</span>
           </Link>
-        ))}
-        <Link
-          href="/contact"
-          className="px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium hover:shadow-lg hover:-translate-y-0.5"
-        >
-          Get In Touch
-        </Link>
-      </nav>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* CTA + Mobile menu */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/#contact"
+              className="hidden md:inline-flex px-4 py-2 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              Get In Touch
+            </Link>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`md:hidden p-3 rounded-xl bg-muted text-foreground transition-all duration-300 aria-[expanded=true]:shadow-md ${
+                isOpen ? "rotate-90" : "rotate-0"
+              }`}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <Icons.X size={22} /> : <Icons.Menu size={22} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Removed old floating desktop brand and nav in favor of solid header */}
 
       {isOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
