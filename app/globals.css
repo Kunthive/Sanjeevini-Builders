@@ -289,10 +289,10 @@ html {
 }
 
 button,
-a,
-input,
-textarea,
-select {
+ a,
+ input,
+ textarea,
+ select {
   @apply transition-all duration-300 ease-out;
 }
 
@@ -301,8 +301,8 @@ button:hover:not(:disabled) {
 }
 
 input:focus,
-textarea:focus,
-select:focus {
+ textarea:focus,
+ select:focus {
   @apply ring-2 ring-primary/50;
 }
 
@@ -335,5 +335,14 @@ main {
   .animate-glow,
   .animate-float {
     animation: none !important;
+  }
+}
+
+/* Limit heavy hover transforms on small screens */
+@media (max-width: 640px) {
+  .hover\:-translate-y-1,
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:translate-x-1 {
+    transform: none !important;
   }
 }
