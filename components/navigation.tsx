@@ -6,6 +6,7 @@ import { Icons } from "./icons"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
 
   useEffect(() => {
     if (typeof document === "undefined") return
@@ -14,6 +15,17 @@ export default function Navigation() {
       document.body.style.overflow = ""
     }
   }, [isOpen])
+
+  // Detect scroll to control mobile logo visibility
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const onScroll = () => {
+      setHasScrolled(window.scrollY > 0)
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -26,8 +38,11 @@ export default function Navigation() {
   return (
     <>
       {/* Mobile header bar */}
-      <div className="fixed top-4 left-0 right-0 z-40 flex items-center justify-between px-4 md:hidden">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="fixed top-4 left-4 right-4 z-40 md:hidden rounded-xl bg-background/60 supports-[backdrop-filter]:bg-background/40 backdrop-blur border border-border/50 shadow-sm px-3 py-2 flex items-center justify-between">
+        <Link
+          href="/"
+          className={`flex items-center gap-2 transition-opacity duration-200 ${hasScrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        >
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-lg">S</span>
           </div>
@@ -35,7 +50,7 @@ export default function Navigation() {
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`p-3 rounded-xl bg-white/80 backdrop-blur shadow-sm text-foreground transition-all duration-300 aria-[expanded=true]:shadow-md aria-[expanded=true]:bg-white ${
+          className={`p-3 rounded-xl bg-background/70 supports-[backdrop-filter]:bg-background/50 backdrop-blur shadow-sm text-foreground transition-all duration-300 aria-[expanded=true]:shadow-md aria-[expanded=true]:bg-background ${
             isOpen ? "rotate-90" : "rotate-0"
           }`}
           aria-label={isOpen ? "Close menu" : "Open menu"}
