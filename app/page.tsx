@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <main className="safe-bottom">
       {/* Hero Section */}
-      <section className="relative min-h-[85dvh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20">
+      <section id="home" className="relative min-h-[85dvh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20">
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -106,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="py-14 md:py-24 bg-background">
+      <section id="about" className="py-14 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 text-center animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">About Sanjeevini Builders</h2>
           <p className="text-base md:text-lg text-foreground/80 mb-8 leading-relaxed max-w-prose mx-auto">
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-14 md:py-24 bg-muted">
+      <section id="projects" className="py-14 md:py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10 md:mb-12 animate-slide-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Signature Projects</h2>
@@ -170,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-14 md:py-24 bg-background">
+      <section id="why" className="py-14 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center text-primary">Why Choose Us</h2>
 
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="relative py-14 md:py-24 overflow-hidden">
+      <section id="contact" className="relative py-14 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 z-0"
           style={{
