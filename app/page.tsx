@@ -70,6 +70,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50 sm:bg-black/40" />
         </div>
 
+        {/* Desktop nav backdrop helpers */}
+        <div className="hidden md:block fixed top-4 left-4 right-4 z-30 pointer-events-none">
+          <div className="flex justify-between">
+            <div className="h-12 w-40 rounded-xl bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/40" />
+            <div className="h-12 w-80 rounded-xl bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/40" />
+          </div>
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
           <div className="animate-fade-in-up">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">Building Dreams, Crafting Spaces</h1>
