@@ -6,6 +6,7 @@ import { Icons } from "./icons"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string>("home")
 
   useEffect(() => {
     if (typeof document === "undefined") return
@@ -15,7 +16,30 @@ export default function Navigation() {
     }
   }, [isOpen])
 
-  // Solid header, no scroll-based visual changes
+  // Solid header, with active section tracking for approachable nav buttons
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const sectionIds = ["home", "about", "projects", "why", "contact"]
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[]
+
+    if (elements.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { root: null, rootMargin: "0px", threshold: 0.5 },
+    )
+
+    elements.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   const navLinks = [
     { href: "/#home", label: "Home" },
@@ -39,16 +63,26 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-colors text-sm font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center gap-2">
+            {navLinks.map((link) => {
+              const id = link.href.split("#")[1]
+              const isActive = id === activeSection
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    isActive
+                      ? "bg-primary/10 text-primary ring-1 ring-primary/20"
+                      : "bg-muted hover:bg-muted/80 text-foreground"
+                  }`}
+                >
+                  <span className={`${isActive ? "bg-primary" : "bg-foreground/30"} h-1.5 w-1.5 rounded-full`} />
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* CTA + Mobile menu */}
@@ -89,16 +123,26 @@ export default function Navigation() {
             <div className="mx-auto h-1 w-12 rounded-full bg-muted mb-4" />
 
             <div className="space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block px-4 py-4 text-foreground/90 hover:bg-muted rounded-xl transition-colors font-medium text-base"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const id = link.href.split("#")[1]
+                const isActive = id === activeSection
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`flex items-center justify-between px-4 py-4 rounded-xl transition-colors font-medium text-base ${
+                      isActive ? "bg-primary/10 text-primary" : "text-foreground/90 hover:bg-muted"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className={`${isActive ? "bg-primary" : "bg-foreground/30"} h-1.5 w-1.5 rounded-full`} />
+                      {link.label}
+                    </span>
+                    <span className="text-foreground/40">›</span>
+                  </Link>
+                )
+              })}
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-3">
