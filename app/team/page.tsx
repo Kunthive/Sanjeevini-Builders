@@ -6,14 +6,14 @@ import { Icons } from "@/components/icons"
 export default function TeamPage() {
   const directors = [
     {
-      name: "Vijay Kumar M",
+      name: "Vijay Kummar M",
       role: "Director",
       image: "/professional-manager.png",
       bio:
         "With over 12 years of experience, Vijay leads operations and project delivery with a focus on quality and client satisfaction.",
     },
     {
-      name: "Divakar V",
+      name: "Diwkara V",
       role: "Director",
       image: "/professional-engineer.png",
       bio:
@@ -23,25 +23,25 @@ export default function TeamPage() {
 
   const team = [
     {
-      name: "Ananya Rao",
+      name: "Appu",
       role: "Lead Architect",
       image: "/professional-architect.png",
       bio: "Designs modern, human-centric spaces blending form and function.",
     },
     {
-      name: "Rahul Mehta",
+      name: "Edwin Pinto",
       role: "Senior Interior Designer",
       image: "/professional-designer.png",
       bio: "Creates refined interiors with durable materials and timeless style.",
     },
     {
-      name: "Sahana N",
+      name: "Vijay Kumar P",
       role: "Project Manager",
       image: "/professional-manager.png",
       bio: "Coordinates schedules, budgets, and teams to deliver on time.",
     },
     {
-      name: "Arun Kumar",
+      name: "Murthy",
       role: "Site Engineer",
       image: "/professional-engineer.png",
       bio: "Leads on-site execution with a safety-first approach.",
