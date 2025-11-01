@@ -1,5 +1,6 @@
-import { ArrowLeft, MapPin, Calendar, Users, CheckCircle } from "lucide-react"
+import { ArrowLeft, MapPin, Calendar, Users, CheckCircle, Building2, Ruler, Hammer, Shield, Sparkles } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 // Project data - in a real app, this would come from a database
 const projectsData: Record<
@@ -7,11 +8,17 @@ const projectsData: Record<
   {
     name: string
     type: string
+    category: "residential" | "commercial" | "restoration"
     location: string
     year: string
     team: string
     description: string
     overview: string
+    projectScope: string
+    architecturalStyle: string
+    constructionStatus: "completed" | "in-progress" | "planned"
+    materials: string[]
+    constructionMethods: string[]
     features: string[]
     specifications: {
       label: string
@@ -24,12 +31,36 @@ const projectsData: Record<
   "skyline-penthouse": {
     name: "Skyline Penthouse",
     type: "Luxury Residential",
+    category: "residential",
     location: "Indiranagar, Bangalore",
     year: "2023",
     team: "12 Professionals",
     description: "A stunning luxury penthouse with panoramic city views and premium finishes.",
     overview:
       "The Skyline Penthouse represents the pinnacle of luxury living in Bangalore. Perched on the 45th floor, this exclusive residence offers breathtaking panoramic views of the city skyline. Every detail has been meticulously crafted to provide an unparalleled living experience, from the imported Italian marble flooring to the state-of-the-art smart home automation system.",
+    projectScope:
+      "Complete interior fit-out and customization of a luxury penthouse spanning 8,500 sq ft, including structural modifications, high-end finishes, smart home integration, and premium amenities installation.",
+    architecturalStyle: "Modern Contemporary with Minimalist Elegance",
+    constructionStatus: "completed",
+    materials: [
+      "Italian Carrara Marble",
+      "Premium Hardwood (Teak & Oak)",
+      "Smart Glass Facades",
+      "German Engineered Kitchen Appliances",
+      "Premium Italian Sanitaryware",
+      "Luxury Vinyl Flooring",
+      "Custom Millwork & Cabinetry",
+      "Premium Paint & Wall Finishes",
+    ],
+    constructionMethods: [
+      "Pre-fabricated Modular Construction",
+      "Precision Laser Leveling",
+      "Advanced HVAC System Integration",
+      "Smart Wiring & Automation Infrastructure",
+      "Seismic-Resistant Framing",
+      "Energy-Efficient Insulation",
+      "Waterproof Membrane System",
+    ],
     features: [
       "Panoramic city views from all rooms",
       "Smart home automation system",
@@ -53,18 +84,44 @@ const projectsData: Record<
       "/luxury-penthouse-living-room.png",
       "/luxury-penthouse-bedroom.png",
       "/luxury-penthouse-kitchen.png",
+      "/luxury-penthouse-bathroom.png",
+      "/luxury-penthouse-terrace-view.jpg",
     ],
     nextProject: { slug: "urban-vista", name: "Urban Vista Apartments" },
   },
   "urban-vista": {
     name: "Urban Vista Apartments",
     type: "Multi-Family Residential",
+    category: "residential",
     location: "Whitefield, Bangalore",
     year: "2022",
     team: "25 Professionals",
     description: "Contemporary apartment complex featuring modern architecture and sustainable design.",
     overview:
       "Urban Vista is a contemporary residential complex designed for modern urban living. With 150 units spread across 8 towers, this project combines architectural excellence with sustainable practices. The complex features lush green spaces, recreational facilities, and a vibrant community atmosphere.",
+    projectScope:
+      "Complete development of a multi-tower residential complex with 150 units, including construction of 8 towers (G+15 floors each), comprehensive landscaping, common amenities, parking facilities, and utility infrastructure across 45,000 sq ft.",
+    architecturalStyle: "Modern Sustainable Architecture with Biophilic Design",
+    constructionStatus: "completed",
+    materials: [
+      "RCC Framed Structure",
+      "AAC Blocks for Walls",
+      "Ceramic & Vitrified Tiles",
+      "UPVC Windows & Doors",
+      "Epoxy Flooring for Parking",
+      "Green Roof Systems",
+      "Solar Panel Integration",
+      "Rainwater Harvesting Systems",
+    ],
+    constructionMethods: [
+      "Reinforced Concrete Construction (RCC)",
+      "Pre-cast Panel Installation",
+      "LEED-Compliant Sustainable Practices",
+      "Waste Management Systems",
+      "Solar Energy Integration",
+      "Water Conservation Systems",
+      "Modular Kitchen & Bathroom Units",
+    ],
     features: [
       "150 residential units across 8 towers",
       "LEED certified sustainable design",
@@ -88,6 +145,9 @@ const projectsData: Record<
       "/apartment-complex-courtyard.jpg",
       "/apartment-complex-pool.jpg",
       "/apartment-complex-gym.jpg",
+      "/modern-apartment-exterior.png",
+      "/apartment-living-room.png",
+      "/apartment-garden-landscape.jpg",
     ],
     nextProject: { slug: "metro-hub", name: "Metro Commercial Hub" },
   },
