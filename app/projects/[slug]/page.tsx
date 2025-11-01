@@ -402,11 +402,48 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* Overview */}
+      {/* Overview & Project Details */}
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">Project Overview</h2>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8">{project.overview}</p>
+          
+          {/* Project Scope */}
+          <div className="mt-10 p-6 md:p-8 bg-card rounded-lg border border-border">
+            <div className="flex items-center gap-3 mb-4">
+              <Ruler className="text-accent" size={24} />
+              <h3 className="text-xl md:text-2xl font-bold text-primary">Project Scope</h3>
+            </div>
+            <p className="text-foreground/80 leading-relaxed">{project.projectScope}</p>
+          </div>
+
+          {/* Architectural Style & Status */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 bg-card rounded-lg border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <Building2 className="text-accent" size={24} />
+                <h3 className="text-lg font-bold text-primary">Architectural Style</h3>
+              </div>
+              <p className="text-foreground/80">{project.architecturalStyle}</p>
+            </div>
+            <div className="p-6 bg-card rounded-lg border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <Shield className="text-accent" size={24} />
+                <h3 className="text-lg font-bold text-primary">Construction Status</h3>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className={`inline-flex px-3 py-1 rounded-full text-sm font-semibold ${
+                  project.constructionStatus === "completed" 
+                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                    : project.constructionStatus === "in-progress"
+                    ? "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"
+                    : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                }`}>
+                  {project.constructionStatus === "completed" ? "Completed" : project.constructionStatus === "in-progress" ? "In Progress" : "Planned"}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -440,18 +477,61 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {/* Materials & Methods */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            {/* Key Materials */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Hammer className="text-accent" size={28} />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">Key Materials</h2>
+              </div>
+              <div className="space-y-3">
+                {project.materials.map((material, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-card rounded-lg border border-border">
+                    <Sparkles className="text-accent flex-shrink-0 mt-0.5" size={18} />
+                    <p className="text-foreground/80 text-sm md:text-base">{material}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Construction Methods */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Building2 className="text-accent" size={28} />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">Construction Methods</h2>
+              </div>
+              <div className="space-y-3">
+                {project.constructionMethods.map((method, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-card rounded-lg border border-border">
+                    <CheckCircle className="text-accent flex-shrink-0 mt-0.5" size={18} />
+                    <p className="text-foreground/80 text-sm md:text-base">{method}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Gallery */}
       <section className="py-16 md:py-24 bg-muted">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Project Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {project.gallery.map((image, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-lg">
-                <img
-                  src={image || "/placeholder.svg"}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-80 object-cover"
-                />
+              <div key={index} className="overflow-hidden rounded-lg shadow-lg group">
+                <div className="relative h-64 md:h-80 overflow-hidden">
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={`${project.name} - Gallery ${index + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             ))}
           </div>
