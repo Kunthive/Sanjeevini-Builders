@@ -197,6 +197,109 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Testimonials */}
+      <section id="testimonials" className="py-14 md:py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">What Our Clients Say</h2>
+            <p className="text-foreground/70">Trusted by homeowners and businesses across Bangalore</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                name: "Rajesh Kumar",
+                role: "Homeowner, Skyline Penthouse",
+                content:
+                  "Sanjeevini Builders transformed our vision into reality. The attention to detail and quality of work exceeded our expectations. Our penthouse is truly a masterpiece.",
+                rating: 5,
+              },
+              {
+                name: "Priya Sharma",
+                role: "Property Developer, Urban Vista",
+                content:
+                  "Working with Sanjeevini Builders was a pleasure. Their expertise in sustainable construction and timely delivery made them our preferred partner for all future projects.",
+                rating: 5,
+              },
+              {
+                name: "Amit Patel",
+                role: "Business Owner, Metro Hub",
+                content:
+                  "The commercial warehouse they built for us is exceptional. The modern design, efficient layout, and quality construction have significantly improved our operations.",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <div
+                key={index}
+                className="p-6 md:p-8 bg-card rounded-lg border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Icons.Star key={i} className="text-yellow-400 fill-yellow-400" size={18} />
+                  ))}
+                </div>
+                <p className="text-foreground/80 mb-6 leading-relaxed italic">&ldquo;{testimonial.content}&rdquo;</p>
+                <div>
+                  <p className="font-semibold text-primary">{testimonial.name}</p>
+                  <p className="text-sm text-foreground/70">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainability & Commitment */}
+      <section id="sustainability" className="py-14 md:py-24 bg-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Commitment to Sustainability</h2>
+            <p className="text-foreground/70">Building responsibly for a better tomorrow</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Icons.Leaf,
+                title: "Green Materials",
+                description: "We prioritize eco-friendly and sustainable building materials in all our projects.",
+              },
+              {
+                icon: Icons.Zap,
+                title: "Energy Efficiency",
+                description: "Smart energy systems and solar integration reduce carbon footprint and operating costs.",
+              },
+              {
+                icon: Icons.Droplet,
+                title: "Water Conservation",
+                description: "Rainwater harvesting and efficient water management systems in every project.",
+              },
+              {
+                icon: Icons.Recycle,
+                title: "Waste Management",
+                description: "Comprehensive waste reduction and recycling programs throughout construction.",
+              },
+            ].map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <div
+                  key={index}
+                  className="p-6 bg-card rounded-lg border border-border text-center hover:border-primary/50 transition-colors"
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Icon className="text-primary" size={28} />
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
+                  <p className="text-foreground/70 text-sm">{feature.description}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section id="contact" className="relative py-14 md:py-24 overflow-hidden">
         <div

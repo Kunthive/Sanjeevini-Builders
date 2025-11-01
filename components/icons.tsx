@@ -315,4 +315,68 @@ export const Icons = {
       <circle cx="12" cy="12" r="3.846" />
     </svg>
   ),
+  Star: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...defaultIconProps}
+      {...props}
+    >
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  ),
+  Leaf: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...defaultIconProps}
+      {...props}
+    >
+      <path d="M11 20A7 7 0 0 1 9.8 6.1 15.66 15.66 0 0 0 20 13a7 7 0 0 1-9 7z" />
+      <path d="M9 12a5 5 0 0 0 5 5" />
+    </svg>
+  ),
+  Droplet: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...defaultIconProps}
+      {...props}
+    >
+      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+    </svg>
+  ),
+  Recycle: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...defaultIconProps}
+      {...props}
+    >
+      <polyline points="17 1 21 5 17 9" />
+      <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+      <polyline points="7 23 3 19 7 15" />
+      <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+    </svg>
+  ),
 }
