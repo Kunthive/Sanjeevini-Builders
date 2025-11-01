@@ -154,12 +154,36 @@ const projectsData: Record<
   "metro-hub": {
     name: "Metro Commercial Hub",
     type: "Commercial Warehouse",
+    category: "commercial",
     location: "Peenya, Bangalore",
     year: "2021",
     team: "30 Professionals",
     description: "State-of-the-art commercial warehouse with efficient logistics infrastructure.",
     overview:
       "Metro Commercial Hub is a modern logistics and warehousing facility designed to meet the demands of contemporary supply chain management. With advanced automation systems and efficient layout design, this facility serves as a hub for multiple industries.",
+    projectScope:
+      "Complete design and construction of a modern logistics and warehousing facility including main warehouse structure, climate-controlled zones, office spaces, loading docks, parking infrastructure, security systems, and rail connectivity over 120,000 sq ft.",
+    architecturalStyle: "Industrial Modern with Functional Efficiency",
+    constructionStatus: "completed",
+    materials: [
+      "Pre-engineered Steel Structure (PEB)",
+      "Metal Cladding & Roofing",
+      "Concrete Flooring with Epoxy Coating",
+      "Insulated Sandwich Panels",
+      "Aluminum Composite Panels",
+      "High-Performance Glazing",
+      "Fire-Resistant Materials",
+      "Durable Industrial Flooring",
+    ],
+    constructionMethods: [
+      "Pre-Engineered Building (PEB) Construction",
+      "Prefabricated Steel Frame Assembly",
+      "Climate Control System Integration",
+      "Automated Material Handling Infrastructure",
+      "Fire Safety & Security System Installation",
+      "Dock Leveler & Racking System Installation",
+      "Utility & HVAC Infrastructure",
+    ],
     features: [
       "Advanced warehouse automation",
       "Climate-controlled storage areas",
@@ -183,6 +207,127 @@ const projectsData: Record<
       "/warehouse-interior.png",
       "/warehouse-loading-dock.png",
       "/warehouse-office.jpg",
+      "/warehouse-interior-space.jpg",
+      "/warehouse-parking-facility.jpg",
+      "/warehouse-security-entrance.jpg",
+      "/warehouse-office-area.jpg",
+    ],
+  },
+  "riverside-villas": {
+    name: "Riverside Villas",
+    type: "Luxury Villas",
+    category: "residential",
+    location: "Hebbal, Bangalore",
+    year: "2024",
+    team: "18 Professionals",
+    description: "Exclusive villa community with riverside views and premium amenities.",
+    overview:
+      "Riverside Villas is an exclusive gated community of luxury villas offering serene riverside living. Each villa is designed with contemporary elegance, featuring spacious layouts, private gardens, and premium finishes that blend seamlessly with the natural landscape.",
+    projectScope:
+      "Design and construction of 25 luxury villas (each 4,500 sq ft) in a gated community, including landscaping, clubhouse, swimming pool, gymnasium, children's play area, security systems, and comprehensive infrastructure.",
+    architecturalStyle: "Contemporary Tropical Architecture with Vernacular Elements",
+    constructionStatus: "completed",
+    materials: [
+      "Reinforced Concrete Construction",
+      "Natural Stone Cladding",
+      "Premium Wooden Doors & Windows",
+      "Italian Marble Flooring",
+      "High-Quality Ceramic Tiles",
+      "Premium Paint & Textures",
+      "Smart Home Integration",
+      "Solar Panel Systems",
+    ],
+    constructionMethods: [
+      "RCC Framed Construction",
+      "Basement & Foundation Work",
+      "Steel Truss Roofing",
+      "Waterproofing & Terrace Gardens",
+      "Modern Plumbing & Electrical Systems",
+      "Smart Home Automation",
+      "Landscape Architecture",
+      "Sustainable Energy Systems",
+    ],
+    features: [
+      "25 luxury villas with river views",
+      "Private gardens and terraces",
+      "Community clubhouse and pool",
+      "Gymnasium and spa facilities",
+      "Children's play areas",
+      "24/7 security and surveillance",
+      "Smart home automation",
+      "Rainwater harvesting",
+    ],
+    specifications: [
+      { label: "Total Units", value: "25 Villas" },
+      { label: "Villa Size", value: "4,500 sq ft each" },
+      { label: "Total Area", value: "112,500 sq ft" },
+      { label: "Construction Period", value: "30 Months" },
+      { label: "Completion Date", value: "January 2024" },
+      { label: "Investment", value: "₹95 Crores" },
+    ],
+    gallery: [
+      "/luxury-villa-riverside-architecture.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+    ],
+    nextProject: { slug: "heritage-restoration", name: "Heritage Restoration" },
+  },
+  "heritage-restoration": {
+    name: "Heritage Restoration",
+    type: "Heritage Building",
+    category: "restoration",
+    location: "Basavanagudi, Bangalore",
+    year: "2023",
+    team: "15 Professionals",
+    description: "Careful restoration of a heritage building preserving its historical charm.",
+    overview:
+      "This heritage restoration project involved the meticulous restoration of a 100-year-old colonial building while preserving its architectural heritage. The project combined traditional restoration techniques with modern structural reinforcement to ensure the building stands strong for future generations.",
+    projectScope:
+      "Complete restoration of a heritage building including structural reinforcement, facade restoration, interior refurbishment, modern utility integration, accessibility upgrades, and landscape restoration while maintaining historical authenticity.",
+    architecturalStyle: "Colonial Heritage Architecture (Restoration)",
+    constructionStatus: "completed",
+    materials: [
+      "Traditional Lime Mortar",
+      "Heritage Stone & Brickwork",
+      "Teak Wood Restoration",
+      "Period-Appropriate Finishes",
+      "Traditional Roofing Tiles",
+      "Original Window & Door Restoration",
+      "Heritage Paint & Coatings",
+      "Authentic Hardware Restoration",
+    ],
+    constructionMethods: [
+      "Structural Reinforcement with Modern Materials",
+      "Traditional Lime Mortar Application",
+      "Wood Restoration & Treatment",
+      "Stone Carving & Repair",
+      "Traditional Craftsmanship Techniques",
+      "Modern Utility Integration (Hidden)",
+      "Seismic Retrofitting",
+      "Moisture Control & Ventilation Systems",
+    ],
+    features: [
+      "Preserved original architectural features",
+      "Structural reinforcement for safety",
+      "Modern utilities integration",
+      "Restored heritage interiors",
+      "Accessibility improvements",
+      "Landscape restoration",
+      "Heritage-compliant lighting",
+      "Documentation and archival work",
+    ],
+    specifications: [
+      { label: "Building Age", value: "100+ Years" },
+      { label: "Total Area", value: "15,000 sq ft" },
+      { label: "Floors", value: "2 Floors + Attic" },
+      { label: "Construction Period", value: "18 Months" },
+      { label: "Completion Date", value: "November 2023" },
+      { label: "Investment", value: "₹12 Crores" },
+    ],
+    gallery: [
+      "/heritage-building-restoration-architecture.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg",
     ],
   },
 }
@@ -222,33 +367,35 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       {/* Project Info */}
       <section className="py-12 bg-muted border-b border-border">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="flex items-center gap-3">
-              <MapPin className="text-accent flex-shrink-0" size={24} />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <div className="flex items-start gap-3">
+              <MapPin className="text-accent flex-shrink-0 mt-1" size={20} />
               <div>
-                <p className="text-sm text-foreground/70">Location</p>
-                <p className="font-semibold">{project.location}</p>
+                <p className="text-xs md:text-sm text-foreground/70 mb-1">Location</p>
+                <p className="font-semibold text-sm md:text-base">{project.location}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <Calendar className="text-accent flex-shrink-0" size={24} />
+            <div className="flex items-start gap-3">
+              <Calendar className="text-accent flex-shrink-0 mt-1" size={20} />
               <div>
-                <p className="text-sm text-foreground/70">Year</p>
-                <p className="font-semibold">{project.year}</p>
+                <p className="text-xs md:text-sm text-foreground/70 mb-1">Year</p>
+                <p className="font-semibold text-sm md:text-base">{project.year}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <Users className="text-accent flex-shrink-0" size={24} />
+            <div className="flex items-start gap-3">
+              <Users className="text-accent flex-shrink-0 mt-1" size={20} />
               <div>
-                <p className="text-sm text-foreground/70">Team</p>
-                <p className="font-semibold">{project.team}</p>
+                <p className="text-xs md:text-sm text-foreground/70 mb-1">Team</p>
+                <p className="font-semibold text-sm md:text-base">{project.team}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <CheckCircle className="text-accent flex-shrink-0" size={24} />
+            <div className="flex items-start gap-3">
+              <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
               <div>
-                <p className="text-sm text-foreground/70">Type</p>
-                <p className="font-semibold">{project.type}</p>
+                <p className="text-xs md:text-sm text-foreground/70 mb-1">Status</p>
+                <p className="font-semibold text-sm md:text-base capitalize">
+                  {project.constructionStatus === "completed" ? "Completed" : project.constructionStatus === "in-progress" ? "In Progress" : "Planned"}
+                </p>
               </div>
             </div>
           </div>
