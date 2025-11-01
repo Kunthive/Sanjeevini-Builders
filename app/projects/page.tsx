@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, Filter } from "lucide-react"
+import Image from "next/image"
+import { ArrowRight, Filter, Home, Building2, RefreshCw } from "lucide-react"
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -16,6 +17,7 @@ export default function Projects() {
       image: "/luxury-penthouse-interior.png",
       description: "A stunning luxury penthouse with panoramic city views and premium finishes.",
       link: "/projects/skyline-penthouse",
+      status: "completed",
     },
     {
       id: 2,
@@ -25,24 +27,27 @@ export default function Projects() {
       image: "/modern-apartment-complex-exterior.jpg",
       description: "Contemporary apartment complex featuring modern architecture and sustainable design.",
       link: "/projects/urban-vista",
+      status: "completed",
     },
     {
       id: 3,
-      name: "Metro Commercial Hub",
-      category: "commercial",
-      type: "Commercial Warehouse",
-      image: "/industrial-warehouse-modern-design.jpg",
-      description: "State-of-the-art commercial warehouse with efficient logistics infrastructure.",
-      link: "/projects/metro-hub",
-    },
-    {
-      id: 4,
       name: "Riverside Villas",
       category: "residential",
       type: "Luxury Villas",
       image: "/luxury-villa-riverside-architecture.jpg",
       description: "Exclusive villa community with riverside views and premium amenities.",
       link: "/projects/riverside-villas",
+      status: "completed",
+    },
+    {
+      id: 4,
+      name: "Metro Commercial Hub",
+      category: "commercial",
+      type: "Commercial Warehouse",
+      image: "/industrial-warehouse-modern-design.jpg",
+      description: "State-of-the-art commercial warehouse with efficient logistics infrastructure.",
+      link: "/projects/metro-hub",
+      status: "completed",
     },
     {
       id: 5,
@@ -52,6 +57,7 @@ export default function Projects() {
       image: "/modern-office-building-glass-architecture.jpg",
       description: "Modern office complex designed for tech companies with collaborative spaces.",
       link: "/projects/tech-park",
+      status: "in-progress",
     },
     {
       id: 6,
@@ -61,14 +67,15 @@ export default function Projects() {
       image: "/heritage-building-restoration-architecture.jpg",
       description: "Careful restoration of a heritage building preserving its historical charm.",
       link: "/projects/heritage-restoration",
+      status: "completed",
     },
   ]
 
   const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "residential", label: "Residential" },
-    { id: "commercial", label: "Commercial" },
-    { id: "restoration", label: "Restoration" },
+    { id: "all", label: "All Projects", icon: Filter },
+    { id: "residential", label: "Residential", icon: Home },
+    { id: "commercial", label: "Commercial", icon: Building2 },
+    { id: "restoration", label: "Restoration", icon: RefreshCw },
   ]
 
   const filteredProjects =
