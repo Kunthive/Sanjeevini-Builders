@@ -135,39 +135,72 @@ export default function Projects() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-12 md:py-16 lg:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={project.link}
-                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+          {filteredProjects.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-lg text-foreground/70 mb-4">No projects found in this category.</p>
+              <button
+                onClick={() => setSelectedCategory("all")}
+                className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold"
               >
-                <div className="relative h-80 overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-                </div>
+                View All Projects
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {filteredProjects.map((project) => (
+                <Link
+                  key={project.id}
+                  href={project.link}
+                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="relative h-64 md:h-80 overflow-hidden">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:from-black/80 transition-colors" />
+                    {project.status && (
+                      <div className="absolute top-4 right-4">
+                        <span
+                          className={`inline-block px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                            project.status === "completed"
+                              ? "bg-green-500/90 text-white"
+                              : project.status === "in-progress"
+                              ? "bg-blue-500/90 text-white"
+                              : "bg-yellow-500/90 text-white"
+                          }`}
+                        >
+                          {project.status === "completed"
+                            ? "Completed"
+                            : project.status === "in-progress"
+                            ? "In Progress"
+                            : "Planned"}
+                        </span>
+                      </div>
+                    )}
+                  </div>
 
-                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                  <div className="mb-2">
-                    <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full">
-                      {project.type}
-                    </span>
+                  <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 text-white">
+                    <div className="mb-2">
+                      <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full">
+                        {project.type}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold mb-2">{project.name}</h3>
+                    <p className="text-sm opacity-90 mb-3 line-clamp-2">{project.description}</p>
+                    <div className="flex items-center gap-2 text-sm opacity-90 group-hover:opacity-100 transition-opacity">
+                      View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
-                  <p className="text-sm opacity-90 mb-3 line-clamp-2">{project.description}</p>
-                  <div className="flex items-center gap-2 text-sm opacity-90 group-hover:opacity-100 transition-opacity">
-                    View Details <ArrowRight size={16} />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
