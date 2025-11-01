@@ -351,16 +351,32 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <img src={project.gallery[0] || "/placeholder.svg"} alt={project.name} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 text-white">
-          <Link href="/projects" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity w-fit">
-            <ArrowLeft size={20} />
-            Back to Projects
+      <section className="relative h-80 md:h-[500px] overflow-hidden">
+        <div className="relative w-full h-full">
+          <Image
+            src={project.gallery[0] || "/placeholder.svg"}
+            alt={project.name}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
+        <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-12 text-white">
+          <Link 
+            href="/projects" 
+            className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity w-fit text-sm md:text-base"
+          >
+            <ArrowLeft size={18} className="md:w-5 md:h-5" />
+            <span>Back to Projects</span>
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">{project.name}</h1>
-          <p className="text-lg opacity-90">{project.type}</p>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2">{project.name}</h1>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-base md:text-lg opacity-90">{project.type}</p>
+            <span className="hidden md:inline opacity-50">•</span>
+            <span className="text-sm md:text-base opacity-75">{project.location}</span>
+          </div>
         </div>
       </section>
 
