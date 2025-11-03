@@ -1,0 +1,400 @@
+{
+  "categories": ["residential", "commercial", "restoration"],
+  "projects": [
+    {
+      "slug": "skyline-penthouse",
+      "title": "Skyline Penthouse",
+      "type": "Luxury Residential",
+      "category": "residential",
+      "location": "Indiranagar, Bangalore",
+      "year": "2023",
+      "team": "12 Professionals",
+      "status": "completed",
+      "summary": "A stunning luxury penthouse with panoramic city views and premium finishes.",
+      "overview": "The Skyline Penthouse represents the pinnacle of luxury living in Bangalore. Perched on the 45th floor, this exclusive residence offers breathtaking panoramic views of the city skyline. Every detail has been meticulously crafted to provide an unparalleled living experience, from the imported Italian marble flooring to the state-of-the-art smart home automation system.",
+      "projectScope": "Complete interior fit-out and customization of a luxury penthouse spanning 8,500 sq ft, including structural modifications, high-end finishes, smart home integration, and premium amenities installation.",
+      "architecturalStyle": "Modern Contemporary with Minimalist Elegance",
+      "constructionStatus": "completed",
+      "materials": [
+        "Italian Carrara Marble",
+        "Premium Hardwood (Teak & Oak)",
+        "Smart Glass Facades",
+        "German Engineered Kitchen Appliances",
+        "Premium Italian Sanitaryware",
+        "Luxury Vinyl Flooring",
+        "Custom Millwork & Cabinetry",
+        "Premium Paint & Wall Finishes"
+      ],
+      "constructionMethods": [
+        "Pre-fabricated Modular Construction",
+        "Precision Laser Leveling",
+        "Advanced HVAC System Integration",
+        "Smart Wiring & Automation Infrastructure",
+        "Seismic-Resistant Framing",
+        "Energy-Efficient Insulation",
+        "Waterproof Membrane System"
+      ],
+      "features": [
+        "Panoramic city views from all rooms",
+        "Smart home automation system",
+        "Italian marble flooring throughout",
+        "Premium Italian fixtures and fittings",
+        "Private infinity pool with city views",
+        "Home theater and entertainment zone",
+        "Wine cellar and tasting room",
+        "Dedicated spa and wellness area"
+      ],
+      "specifications": [
+        { "label": "Total Area", "value": "8,500 sq ft" },
+        { "label": "Bedrooms", "value": "4 Master Suites" },
+        { "label": "Bathrooms", "value": "5 Luxury Baths" },
+        { "label": "Construction Period", "value": "18 Months" },
+        { "label": "Completion Date", "value": "March 2023" },
+        { "label": "Investment", "value": "₹15 Crores" }
+      ],
+      "images": [
+        { "src": "/luxury-penthouse-interior.png", "alt": "Skyline Penthouse Interior" },
+        { "src": "/luxury-penthouse-living-room.png", "alt": "Living Room" },
+        { "src": "/luxury-penthouse-bedroom.png", "alt": "Bedroom" },
+        { "src": "/luxury-penthouse-kitchen.png", "alt": "Kitchen" },
+        { "src": "/luxury-penthouse-bathroom.png", "alt": "Bathroom" },
+        { "src": "/luxury-penthouse-terrace-view.jpg", "alt": "Terrace View" }
+      ],
+      "seo": { "description": "Luxury penthouse with panoramic views in Indiranagar, Bangalore.", "keywords": ["residential", "penthouse", "Indiranagar"] },
+      "nextProject": { "slug": "urban-vista", "name": "Urban Vista Apartments" }
+    },
+    {
+      "slug": "urban-vista",
+      "title": "Urban Vista Apartments",
+      "type": "Multi-Family Residential",
+      "category": "residential",
+      "location": "Whitefield, Bangalore",
+      "year": "2022",
+      "team": "25 Professionals",
+      "status": "completed",
+      "summary": "Contemporary apartment complex featuring modern architecture and sustainable design.",
+      "overview": "Urban Vista is a contemporary residential complex designed for modern urban living. With 150 units spread across 8 towers, this project combines architectural excellence with sustainable practices. The complex features lush green spaces, recreational facilities, and a vibrant community atmosphere.",
+      "projectScope": "Complete development of a multi-tower residential complex with 150 units, including construction of 8 towers (G+15 floors each), comprehensive landscaping, common amenities, parking facilities, and utility infrastructure across 45,000 sq ft.",
+      "architecturalStyle": "Modern Sustainable Architecture with Biophilic Design",
+      "constructionStatus": "completed",
+      "materials": [
+        "RCC Framed Structure",
+        "AAC Blocks for Walls",
+        "Ceramic & Vitrified Tiles",
+        "UPVC Windows & Doors",
+        "Epoxy Flooring for Parking",
+        "Green Roof Systems",
+        "Solar Panel Integration",
+        "Rainwater Harvesting Systems"
+      ],
+      "constructionMethods": [
+        "Reinforced Concrete Construction (RCC)",
+        "Pre-cast Panel Installation",
+        "LEED-Compliant Sustainable Practices",
+        "Waste Management Systems",
+        "Solar Energy Integration",
+        "Water Conservation Systems",
+        "Modular Kitchen & Bathroom Units"
+      ],
+      "features": [
+        "150 residential units across 8 towers",
+        "LEED certified sustainable design",
+        "Central community garden and park",
+        "Olympic-size swimming pool",
+        "State-of-the-art gymnasium",
+        "Children's play areas and schools",
+        "24/7 security and surveillance",
+        "EV charging stations"
+      ],
+      "specifications": [
+        { "label": "Total Area", "value": "45,000 sq ft" },
+        { "label": "Units", "value": "150 Apartments" },
+        { "label": "Unit Sizes", "value": "1BHK to 4BHK" },
+        { "label": "Construction Period", "value": "36 Months" },
+        { "label": "Completion Date", "value": "August 2022" },
+        { "label": "Investment", "value": "₹120 Crores" }
+      ],
+      "images": [
+        { "src": "/modern-apartment-complex-exterior.jpg", "alt": "Urban Vista Exterior" },
+        { "src": "/apartment-complex-courtyard.jpg", "alt": "Courtyard" },
+        { "src": "/apartment-complex-pool.jpg", "alt": "Pool" },
+        { "src": "/apartment-complex-gym.jpg", "alt": "Gym" },
+        { "src": "/modern-apartment-exterior.png", "alt": "Exterior 2" },
+        { "src": "/apartment-living-room.png", "alt": "Living Room" },
+        { "src": "/apartment-garden-landscape.jpg", "alt": "Garden" }
+      ],
+      "seo": { "description": "Modern sustainable apartments in Whitefield, Bangalore.", "keywords": ["residential", "apartments", "Whitefield"] },
+      "nextProject": { "slug": "metro-hub", "name": "Metro Commercial Hub" }
+    },
+    {
+      "slug": "metro-hub",
+      "title": "Metro Commercial Hub",
+      "type": "Commercial Warehouse",
+      "category": "commercial",
+      "location": "Peenya, Bangalore",
+      "year": "2021",
+      "team": "30 Professionals",
+      "status": "completed",
+      "description": "State-of-the-art commercial warehouse with efficient logistics infrastructure.",
+      "overview": "Metro Commercial Hub is a modern logistics and warehousing facility designed to meet the demands of contemporary supply chain management. With advanced automation systems and efficient layout design, this facility serves as a hub for multiple industries.",
+      "projectScope": "Complete design and construction of a modern logistics and warehousing facility including main warehouse structure, climate-controlled zones, office spaces, loading docks, parking infrastructure, security systems, and rail connectivity over 120,000 sq ft.",
+      "architecturalStyle": "Industrial Modern with Functional Efficiency",
+      "constructionStatus": "completed",
+      "materials": [
+        "Pre-engineered Steel Structure (PEB)",
+        "Metal Cladding & Roofing",
+        "Concrete Flooring with Epoxy Coating",
+        "Insulated Sandwich Panels",
+        "Aluminum Composite Panels",
+        "High-Performance Glazing",
+        "Fire-Resistant Materials",
+        "Durable Industrial Flooring"
+      ],
+      "constructionMethods": [
+        "Pre-Engineered Building (PEB) Construction",
+        "Prefabricated Steel Frame Assembly",
+        "Climate Control System Integration",
+        "Automated Material Handling Infrastructure",
+        "Fire Safety & Security System Installation",
+        "Dock Leveler & Racking System Installation",
+        "Utility & HVAC Infrastructure"
+      ],
+      "features": [
+        "Advanced warehouse automation",
+        "Climate-controlled storage areas",
+        "Efficient loading and unloading zones",
+        "Modern office spaces",
+        "Advanced security systems",
+        "Ample parking for vehicles",
+        "Rail connectivity",
+        "Eco-friendly waste management"
+      ],
+      "specifications": [
+        { "label": "Total Area", "value": "120,000 sq ft" },
+        { "label": "Storage Capacity", "value": "50,000 pallets" },
+        { "label": "Ceiling Height", "value": "35 feet" },
+        { "label": "Construction Period", "value": "24 Months" },
+        { "label": "Completion Date", "value": "June 2021" },
+        { "label": "Investment", "value": "₹80 Crores" }
+      ],
+      "images": [
+        { "src": "/industrial-warehouse-modern-design.jpg", "alt": "Warehouse Exterior" },
+        { "src": "/warehouse-interior.png", "alt": "Warehouse Interior" },
+        { "src": "/warehouse-loading-dock.png", "alt": "Loading Dock" },
+        { "src": "/warehouse-office.jpg", "alt": "Office" },
+        { "src": "/warehouse-interior-space.jpg", "alt": "Interior Space" },
+        { "src": "/warehouse-parking-facility.jpg", "alt": "Parking" },
+        { "src": "/warehouse-security-entrance.jpg", "alt": "Security Entrance" },
+        { "src": "/warehouse-office-area.jpg", "alt": "Office Area" }
+      ],
+      "seo": { "description": "Modern commercial warehouse in Peenya, Bangalore.", "keywords": ["commercial", "warehouse", "Peenya"] }
+    },
+    {
+      "slug": "riverside-villas",
+      "title": "Riverside Villas",
+      "type": "Luxury Villas",
+      "category": "residential",
+      "location": "Hebbal, Bangalore",
+      "year": "2024",
+      "team": "18 Professionals",
+      "status": "completed",
+      "description": "Exclusive villa community with riverside views and premium amenities.",
+      "overview": "Riverside Villas is an exclusive gated community of luxury villas offering serene riverside living. Each villa is designed with contemporary elegance, featuring spacious layouts, private gardens, and premium finishes that blend seamlessly with the natural landscape.",
+      "projectScope": "Design and construction of 25 luxury villas (each 4,500 sq ft) in a gated community, including landscaping, clubhouse, swimming pool, gymnasium, children's play area, security systems, and comprehensive infrastructure.",
+      "architecturalStyle": "Contemporary Tropical Architecture with Vernacular Elements",
+      "constructionStatus": "completed",
+      "materials": [
+        "Reinforced Concrete Construction",
+        "Natural Stone Cladding",
+        "Premium Wooden Doors & Windows",
+        "Italian Marble Flooring",
+        "High-Quality Ceramic Tiles",
+        "Premium Paint & Textures",
+        "Smart Home Integration",
+        "Solar Panel Systems"
+      ],
+      "constructionMethods": [
+        "RCC Framed Construction",
+        "Basement & Foundation Work",
+        "Steel Truss Roofing",
+        "Waterproofing & Terrace Gardens",
+        "Modern Plumbing & Electrical Systems",
+        "Smart Home Automation",
+        "Landscape Architecture",
+        "Sustainable Energy Systems"
+      ],
+      "features": [
+        "25 luxury villas with river views",
+        "Private gardens and terraces",
+        "Community clubhouse and pool",
+        "Gymnasium and spa facilities",
+        "Children's play areas",
+        "24/7 security and surveillance",
+        "Smart home automation",
+        "Rainwater harvesting"
+      ],
+      "specifications": [
+        { "label": "Total Units", "value": "25 Villas" },
+        { "label": "Villa Size", "value": "4,500 sq ft each" },
+        { "label": "Total Area", "value": "112,500 sq ft" },
+        { "label": "Construction Period", "value": "30 Months" },
+        { "label": "Completion Date", "value": "January 2024" },
+        { "label": "Investment", "value": "₹95 Crores" }
+      ],
+      "images": [
+        { "src": "/luxury-villa-riverside-architecture.jpg", "alt": "Riverside Villa Exterior" },
+        { "src": "/luxury-penthouse-bedroom-design.jpg", "alt": "Bedroom" },
+        { "src": "/luxury-penthouse-interior-living-room.jpg", "alt": "Living Room" },
+        { "src": "/apartment-garden-landscape.jpg", "alt": "Garden" },
+        { "src": "/luxury-penthouse-terrace-view.jpg", "alt": "Terrace" },
+        { "src": "/apartment-swimming-pool.png", "alt": "Pool" },
+        { "src": "/apartment-gymnasium.jpg", "alt": "Gym" },
+        { "src": "/luxury-penthouse-dining-area.jpg", "alt": "Dining Area" }
+      ],
+      "seo": { "description": "Luxury riverside villas in Hebbal, Bangalore.", "keywords": ["residential", "villas", "Hebbal"] },
+      "nextProject": { "slug": "heritage-restoration", "name": "Heritage Restoration" }
+    },
+    {
+      "slug": "heritage-restoration",
+      "title": "Heritage Restoration",
+      "type": "Heritage Building",
+      "category": "restoration",
+      "location": "Basavanagudi, Bangalore",
+      "year": "2023",
+      "team": "15 Professionals",
+      "status": "completed",
+      "description": "Careful restoration of a heritage building preserving its historical charm.",
+      "overview": "This heritage restoration project involved the meticulous restoration of a 100-year-old colonial building while preserving its architectural heritage. The project combined traditional restoration techniques with modern structural reinforcement to ensure the building stands strong for future generations.",
+      "projectScope": "Complete restoration of a heritage building including structural reinforcement, facade restoration, interior refurbishment, modern utility integration, accessibility upgrades, and landscape restoration while maintaining historical authenticity.",
+      "architecturalStyle": "Colonial Heritage Architecture (Restoration)",
+      "constructionStatus": "completed",
+      "materials": [
+        "Traditional Lime Mortar",
+        "Heritage Stone & Brickwork",
+        "Teak Wood Restoration",
+        "Period-Appropriate Finishes",
+        "Traditional Roofing Tiles",
+        "Original Window & Door Restoration",
+        "Heritage Paint & Coatings",
+        "Authentic Hardware Restoration"
+      ],
+      "constructionMethods": [
+        "Structural Reinforcement with Modern Materials",
+        "Traditional Lime Mortar Application",
+        "Wood Restoration & Treatment",
+        "Stone Carving & Repair",
+        "Traditional Craftsmanship Techniques",
+        "Modern Utility Integration (Hidden)",
+        "Seismic Retrofitting",
+        "Moisture Control & Ventilation Systems"
+      ],
+      "features": [
+        "Preserved original architectural features",
+        "Structural reinforcement for safety",
+        "Modern utilities integration",
+        "Restored heritage interiors",
+        "Accessibility improvements",
+        "Landscape restoration",
+        "Heritage-compliant lighting",
+        "Documentation and archival work"
+      ],
+      "specifications": [
+        { "label": "Building Age", "value": "100+ Years" },
+        { "label": "Total Area", "value": "15,000 sq ft" },
+        { "label": "Floors", "value": "2 Floors + Attic" },
+        { "label": "Construction Period", "value": "18 Months" },
+        { "label": "Completion Date", "value": "November 2023" },
+        { "label": "Investment", "value": "₹12 Crores" }
+      ],
+      "images": [
+        { "src": "/heritage-building-restoration-architecture.jpg", "alt": "Heritage Building Exterior" },
+        { "src": "/luxury-penthouse-interior-living-room.jpg", "alt": "Interior" },
+        { "src": "/luxury-penthouse-bedroom-design.jpg", "alt": "Bedroom" },
+        { "src": "/luxury-penthouse-dining-area.jpg", "alt": "Dining Area" },
+        { "src": "/apartment-lobby-entrance.jpg", "alt": "Lobby" },
+        { "src": "/luxury-penthouse-terrace-view.jpg", "alt": "Terrace" }
+      ],
+      "seo": { "description": "Heritage building restoration in Basavanagudi, Bangalore.", "keywords": ["restoration", "heritage", "Basavanagudi"] },
+      "nextProject": { "slug": "tech-park", "name": "Tech Park Office" }
+    },
+    {
+      "slug": "tech-park",
+      "title": "Tech Park Office",
+      "type": "Office Complex",
+      "category": "commercial",
+      "location": "Koramangala, Bangalore",
+      "year": "2024",
+      "team": "35 Professionals",
+      "status": "in-progress",
+      "description": "Modern office complex designed for tech companies with collaborative spaces.",
+      "overview": "Tech Park Office is a cutting-edge commercial development designed to meet the evolving needs of modern technology companies. Spread across 200,000 sq ft, this office complex features open-plan work areas, collaborative zones, state-of-the-art meeting rooms, and wellness facilities. The building incorporates smart building technology, sustainable energy systems, and biophilic design principles to create an inspiring and productive work environment.",
+      "projectScope": "Complete design and construction of a modern office complex including structural development, interior fit-outs for 15 office suites, cafeteria and dining areas, conference facilities, rooftop recreational zone, underground parking for 300 vehicles, advanced IT infrastructure, and green building certifications across 200,000 sq ft.",
+      "architecturalStyle": "Contemporary Glass Architecture with Smart Building Integration",
+      "constructionStatus": "in-progress",
+      "materials": [
+        "High-Performance Glass Curtain Wall System",
+        "Reinforced Concrete Structure (RCC)",
+        "Aluminum Composite Panels",
+        "Acoustic Ceiling Systems",
+        "Raised Access Flooring",
+        "Premium Carpet & Vinyl Flooring",
+        "Modular Office Partitions",
+        "Energy-Efficient LED Lighting",
+        "Solar Panel Arrays",
+        "Green Roof Systems"
+      ],
+      "constructionMethods": [
+        "Core & Shell Construction",
+        "Curtain Wall Installation",
+        "MEP System Integration",
+        "Smart Building Management System",
+        "Structured Cabling Infrastructure",
+        "HVAC Zoning & Control",
+        "Sustainable Design Implementation",
+        "LEED Certification Process",
+        "Fire Safety & Security Systems",
+        "Advanced Access Control Integration"
+      ],
+      "features": [
+        "200,000 sq ft of modern office space",
+        "Open-plan collaborative work areas",
+        "15 customizable office suites",
+        "Smart building automation system",
+        "High-speed fiber optic connectivity",
+        "Rooftop garden and recreation area",
+        "Multi-cuisine cafeteria and food court",
+        "Gymnasium and wellness center",
+        "300-car underground parking",
+        "EV charging infrastructure",
+        "Conference and meeting facilities",
+        "Break-out zones and lounges",
+        "LEED Gold pre-certification",
+        "24/7 security and monitoring",
+        "Bike storage and shower facilities"
+      ],
+      "specifications": [
+        { "label": "Total Area", "value": "200,000 sq ft" },
+        { "label": "Office Suites", "value": "15 Units" },
+        { "label": "Floors", "value": "10 Floors + Basement" },
+        { "label": "Parking Capacity", "value": "300 Vehicles" },
+        { "label": "Construction Period", "value": "42 Months" },
+        { "label": "Expected Completion", "value": "September 2024" },
+        { "label": "Investment", "value": "₹180 Crores" }
+      ],
+      "images": [
+        { "src": "/modern-office-building-glass-architecture.jpg", "alt": "Office Exterior" },
+        { "src": "/industrial-warehouse-modern-design.jpg", "alt": "Warehouse" },
+        { "src": "/apartment-lobby-entrance.jpg", "alt": "Lobby" },
+        { "src": "/apartment-gymnasium.jpg", "alt": "Gym" },
+        { "src": "/luxury-penthouse-interior-living-room.jpg", "alt": "Interior" },
+        { "src": "/warehouse-office-area.jpg", "alt": "Office Area" },
+        { "src": "/apartment-swimming-pool.png", "alt": "Pool" },
+        { "src": "/luxury-penthouse-terrace-view.jpg", "alt": "Terrace" }
+      ],
+      "seo": { "description": "Modern office complex in Koramangala, Bangalore.", "keywords": ["commercial", "office", "Koramangala"] },
+      "nextProject": { "slug": "skyline-penthouse", "name": "Skyline Penthouse" }
+    }
+  ]
+}
+
+

@@ -1,75 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Filter, Home, Building2, RefreshCw } from "lucide-react"
+import projectsData from "@/data/projects.json"
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("all")
-
-  const projects = [
-    {
-      id: 1,
-      name: "Skyline Penthouse",
-      category: "residential",
-      type: "Luxury Residential",
-      image: "/luxury-penthouse-interior.png",
-      description: "A stunning luxury penthouse with panoramic city views and premium finishes.",
-      link: "/projects/skyline-penthouse",
-      status: "completed",
-    },
-    {
-      id: 2,
-      name: "Urban Vista Apartments",
-      category: "residential",
-      type: "Multi-Family Residential",
-      image: "/modern-apartment-complex-exterior.jpg",
-      description: "Contemporary apartment complex featuring modern architecture and sustainable design.",
-      link: "/projects/urban-vista",
-      status: "completed",
-    },
-    {
-      id: 3,
-      name: "Riverside Villas",
-      category: "residential",
-      type: "Luxury Villas",
-      image: "/luxury-villa-riverside-architecture.jpg",
-      description: "Exclusive villa community with riverside views and premium amenities.",
-      link: "/projects/riverside-villas",
-      status: "completed",
-    },
-    {
-      id: 4,
-      name: "Metro Commercial Hub",
-      category: "commercial",
-      type: "Commercial Warehouse",
-      image: "/industrial-warehouse-modern-design.jpg",
-      description: "State-of-the-art commercial warehouse with efficient logistics infrastructure.",
-      link: "/projects/metro-hub",
-      status: "completed",
-    },
-    {
-      id: 5,
-      name: "Tech Park Office",
-      category: "commercial",
-      type: "Office Complex",
-      image: "/modern-office-building-glass-architecture.jpg",
-      description: "Modern office complex designed for tech companies with collaborative spaces.",
-      link: "/projects/tech-park",
-      status: "in-progress",
-    },
-    {
-      id: 6,
-      name: "Heritage Restoration",
-      category: "restoration",
-      type: "Heritage Building",
-      image: "/heritage-building-restoration-architecture.jpg",
-      description: "Careful restoration of a heritage building preserving its historical charm.",
-      link: "/projects/heritage-restoration",
-      status: "completed",
-    },
-  ]
 
   const categories = [
     { id: "all", label: "All Projects", icon: Filter },
@@ -77,6 +15,20 @@ export default function Projects() {
     { id: "commercial", label: "Commercial", icon: Building2 },
     { id: "restoration", label: "Restoration", icon: RefreshCw },
   ]
+
+  const projects = useMemo(
+    () =>
+      (projectsData.projects || []).map((p) => ({
+        slug: p.slug,
+        title: p.title,
+        category: p.category,
+        type: p.type,
+        image: p.images?.[0]?.src || "/placeholder.svg",
+        status: p.status || p.constructionStatus || "planned",
+        location: p.location,
+      })),
+    []
+  )
 
   const filteredProjects =
     selectedCategory === "all" ? projects : projects.filter((p) => p.category === selectedCategory)
@@ -151,19 +103,19 @@ export default function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredProjects.map((project) => (
                 <Link
-                  key={project.id}
-                  href={project.link}
+                  key={project.slug}
+                  href={`/projects/${project.slug}`}
                   className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   <div className="relative h-64 md:h-80 overflow-hidden">
                     <Image
                       src={project.image || "/placeholder.svg"}
-                      alt={project.name}
+                      alt={project.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:from-black/80 transition-colors" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
                     {project.status && (
                       <div className="absolute top-4 right-4">
                         <span
@@ -175,25 +127,20 @@ export default function Projects() {
                               : "bg-yellow-500/90 text-white"
                           }`}
                         >
-                          {project.status === "completed"
-                            ? "Completed"
-                            : project.status === "in-progress"
-                            ? "In Progress"
-                            : "Planned"}
+                          {project.status === "completed" ? "Completed" : project.status === "in-progress" ? "In Progress" : "Planned"}
                         </span>
                       </div>
                     )}
                   </div>
 
                   <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 text-white">
-                    <div className="mb-2">
-                      <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full">
-                        {project.type}
+                    <div className="mb-1">
+                      <span className="inline-block px-2.5 py-1 bg-accent/90 text-accent-foreground text-[10px] md:text-xs font-semibold rounded-full">
+                        {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                       </span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold mb-2">{project.name}</h3>
-                    <p className="text-sm opacity-90 mb-3 line-clamp-2">{project.description}</p>
-                    <div className="flex items-center gap-2 text-sm opacity-90 group-hover:opacity-100 transition-opacity">
+                    <h3 className="text-xl md:text-2xl font-bold mb-1">{project.title}</h3>
+                    <div className="flex items-center gap-2 text-xs md:text-sm opacity-90">
                       View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
