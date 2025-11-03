@@ -13,7 +13,7 @@ export default function TeamPage() {
         "With over 12 years of experience, Vijay leads operations and project delivery with a focus on quality and client satisfaction.",
     },
     {
-      name: "Diwkara V",
+      name: "Diwakara V",
       role: "Director",
       image: "/professional-engineer.png",
       bio:
