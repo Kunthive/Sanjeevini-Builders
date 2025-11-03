@@ -8,7 +8,7 @@ export default function TeamPage() {
     {
       name: "Vijay Kummar M",
       role: "Director",
-      image: "/professional-manager.png",
+      image: "/professionals/Vijay_Kumar.jpg",
       bio:
         "With over 12 years of experience, Vijay leads operations and project delivery with a focus on quality and client satisfaction.",
     },
@@ -31,13 +31,13 @@ export default function TeamPage() {
     {
       name: "Edwin Pinto",
       role: "Senior Interior Designer",
-      image: "/professional-designer.png",
+      image: "/professionals/Interior-Designer.jpg",
       bio: "Creates refined interiors with durable materials and timeless style.",
     },
     {
       name: "Vijay Kumar P",
       role: "Project Manager",
-      image: "/professional-manager.png",
+      image: "/professionals/vijay_kumar_p.jpg",
       bio: "Coordinates schedules, budgets, and teams to deliver on time.",
     },
     {
