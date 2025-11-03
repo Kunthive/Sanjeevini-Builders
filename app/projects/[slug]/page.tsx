@@ -1,424 +1,34 @@
 import { ArrowLeft, MapPin, Calendar, Users, CheckCircle, Building2, Ruler, Hammer, Shield, Sparkles } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import projectsData from "@/data/projects.json"
 
-// Project data - in a real app, this would come from a database
-const projectsData: Record<
-  string,
-  {
-    name: string
-    type: string
-    category: "residential" | "commercial" | "restoration"
-    location: string
-    year: string
-    team: string
-    description: string
-    overview: string
-    projectScope: string
-    architecturalStyle: string
-    constructionStatus: "completed" | "in-progress" | "planned"
-    materials: string[]
-    constructionMethods: string[]
-    features: string[]
-    specifications: {
-      label: string
-      value: string
-    }[]
-    gallery: string[]
-    nextProject?: { slug: string; name: string }
+type Project = typeof projectsData.projects[number]
+
+function getProjectBySlug(slug: string): Project | undefined {
+  return (projectsData.projects || []).find((p) => p.slug === slug)
+}
+
+export async function generateStaticParams() {
+  return (projectsData.projects || []).map((p) => ({ slug: p.slug }))
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const project = getProjectBySlug(params.slug)
+  if (!project) return {}
+  const title = `${project.title} | Projects`
+  const description = project.seo?.description || project.summary || project.description || "Project details"
+  const images = project.images?.[0]?.src ? [{ url: project.images[0].src }] : []
+  return {
+    title,
+    description,
+    openGraph: { title, description, images },
+    twitter: { card: "summary_large_image", title, description, images },
   }
-> = {
-  "skyline-penthouse": {
-    name: "Skyline Penthouse",
-    type: "Luxury Residential",
-    category: "residential",
-    location: "Indiranagar, Bangalore",
-    year: "2023",
-    team: "12 Professionals",
-    description: "A stunning luxury penthouse with panoramic city views and premium finishes.",
-    overview:
-      "The Skyline Penthouse represents the pinnacle of luxury living in Bangalore. Perched on the 45th floor, this exclusive residence offers breathtaking panoramic views of the city skyline. Every detail has been meticulously crafted to provide an unparalleled living experience, from the imported Italian marble flooring to the state-of-the-art smart home automation system.",
-    projectScope:
-      "Complete interior fit-out and customization of a luxury penthouse spanning 8,500 sq ft, including structural modifications, high-end finishes, smart home integration, and premium amenities installation.",
-    architecturalStyle: "Modern Contemporary with Minimalist Elegance",
-    constructionStatus: "completed",
-    materials: [
-      "Italian Carrara Marble",
-      "Premium Hardwood (Teak & Oak)",
-      "Smart Glass Facades",
-      "German Engineered Kitchen Appliances",
-      "Premium Italian Sanitaryware",
-      "Luxury Vinyl Flooring",
-      "Custom Millwork & Cabinetry",
-      "Premium Paint & Wall Finishes",
-    ],
-    constructionMethods: [
-      "Pre-fabricated Modular Construction",
-      "Precision Laser Leveling",
-      "Advanced HVAC System Integration",
-      "Smart Wiring & Automation Infrastructure",
-      "Seismic-Resistant Framing",
-      "Energy-Efficient Insulation",
-      "Waterproof Membrane System",
-    ],
-    features: [
-      "Panoramic city views from all rooms",
-      "Smart home automation system",
-      "Italian marble flooring throughout",
-      "Premium Italian fixtures and fittings",
-      "Private infinity pool with city views",
-      "Home theater and entertainment zone",
-      "Wine cellar and tasting room",
-      "Dedicated spa and wellness area",
-    ],
-    specifications: [
-      { label: "Total Area", value: "8,500 sq ft" },
-      { label: "Bedrooms", value: "4 Master Suites" },
-      { label: "Bathrooms", value: "5 Luxury Baths" },
-      { label: "Construction Period", value: "18 Months" },
-      { label: "Completion Date", value: "March 2023" },
-      { label: "Investment", value: "₹15 Crores" },
-    ],
-    gallery: [
-      "/luxury-penthouse-interior.png",
-      "/luxury-penthouse-living-room.png",
-      "/luxury-penthouse-bedroom.png",
-      "/luxury-penthouse-kitchen.png",
-      "/luxury-penthouse-bathroom.png",
-      "/luxury-penthouse-terrace-view.jpg",
-    ],
-    nextProject: { slug: "urban-vista", name: "Urban Vista Apartments" },
-  },
-  "urban-vista": {
-    name: "Urban Vista Apartments",
-    type: "Multi-Family Residential",
-    category: "residential",
-    location: "Whitefield, Bangalore",
-    year: "2022",
-    team: "25 Professionals",
-    description: "Contemporary apartment complex featuring modern architecture and sustainable design.",
-    overview:
-      "Urban Vista is a contemporary residential complex designed for modern urban living. With 150 units spread across 8 towers, this project combines architectural excellence with sustainable practices. The complex features lush green spaces, recreational facilities, and a vibrant community atmosphere.",
-    projectScope:
-      "Complete development of a multi-tower residential complex with 150 units, including construction of 8 towers (G+15 floors each), comprehensive landscaping, common amenities, parking facilities, and utility infrastructure across 45,000 sq ft.",
-    architecturalStyle: "Modern Sustainable Architecture with Biophilic Design",
-    constructionStatus: "completed",
-    materials: [
-      "RCC Framed Structure",
-      "AAC Blocks for Walls",
-      "Ceramic & Vitrified Tiles",
-      "UPVC Windows & Doors",
-      "Epoxy Flooring for Parking",
-      "Green Roof Systems",
-      "Solar Panel Integration",
-      "Rainwater Harvesting Systems",
-    ],
-    constructionMethods: [
-      "Reinforced Concrete Construction (RCC)",
-      "Pre-cast Panel Installation",
-      "LEED-Compliant Sustainable Practices",
-      "Waste Management Systems",
-      "Solar Energy Integration",
-      "Water Conservation Systems",
-      "Modular Kitchen & Bathroom Units",
-    ],
-    features: [
-      "150 residential units across 8 towers",
-      "LEED certified sustainable design",
-      "Central community garden and park",
-      "Olympic-size swimming pool",
-      "State-of-the-art gymnasium",
-      "Children's play areas and schools",
-      "24/7 security and surveillance",
-      "EV charging stations",
-    ],
-    specifications: [
-      { label: "Total Area", value: "45,000 sq ft" },
-      { label: "Units", value: "150 Apartments" },
-      { label: "Unit Sizes", value: "1BHK to 4BHK" },
-      { label: "Construction Period", value: "36 Months" },
-      { label: "Completion Date", value: "August 2022" },
-      { label: "Investment", value: "₹120 Crores" },
-    ],
-    gallery: [
-      "/modern-apartment-complex-exterior.jpg",
-      "/apartment-complex-courtyard.jpg",
-      "/apartment-complex-pool.jpg",
-      "/apartment-complex-gym.jpg",
-      "/modern-apartment-exterior.png",
-      "/apartment-living-room.png",
-      "/apartment-garden-landscape.jpg",
-    ],
-    nextProject: { slug: "metro-hub", name: "Metro Commercial Hub" },
-  },
-  "metro-hub": {
-    name: "Metro Commercial Hub",
-    type: "Commercial Warehouse",
-    category: "commercial",
-    location: "Peenya, Bangalore",
-    year: "2021",
-    team: "30 Professionals",
-    description: "State-of-the-art commercial warehouse with efficient logistics infrastructure.",
-    overview:
-      "Metro Commercial Hub is a modern logistics and warehousing facility designed to meet the demands of contemporary supply chain management. With advanced automation systems and efficient layout design, this facility serves as a hub for multiple industries.",
-    projectScope:
-      "Complete design and construction of a modern logistics and warehousing facility including main warehouse structure, climate-controlled zones, office spaces, loading docks, parking infrastructure, security systems, and rail connectivity over 120,000 sq ft.",
-    architecturalStyle: "Industrial Modern with Functional Efficiency",
-    constructionStatus: "completed",
-    materials: [
-      "Pre-engineered Steel Structure (PEB)",
-      "Metal Cladding & Roofing",
-      "Concrete Flooring with Epoxy Coating",
-      "Insulated Sandwich Panels",
-      "Aluminum Composite Panels",
-      "High-Performance Glazing",
-      "Fire-Resistant Materials",
-      "Durable Industrial Flooring",
-    ],
-    constructionMethods: [
-      "Pre-Engineered Building (PEB) Construction",
-      "Prefabricated Steel Frame Assembly",
-      "Climate Control System Integration",
-      "Automated Material Handling Infrastructure",
-      "Fire Safety & Security System Installation",
-      "Dock Leveler & Racking System Installation",
-      "Utility & HVAC Infrastructure",
-    ],
-    features: [
-      "Advanced warehouse automation",
-      "Climate-controlled storage areas",
-      "Efficient loading and unloading zones",
-      "Modern office spaces",
-      "Advanced security systems",
-      "Ample parking for vehicles",
-      "Rail connectivity",
-      "Eco-friendly waste management",
-    ],
-    specifications: [
-      { label: "Total Area", value: "120,000 sq ft" },
-      { label: "Storage Capacity", value: "50,000 pallets" },
-      { label: "Ceiling Height", value: "35 feet" },
-      { label: "Construction Period", value: "24 Months" },
-      { label: "Completion Date", value: "June 2021" },
-      { label: "Investment", value: "₹80 Crores" },
-    ],
-    gallery: [
-      "/industrial-warehouse-modern-design.jpg",
-      "/warehouse-interior.png",
-      "/warehouse-loading-dock.png",
-      "/warehouse-office.jpg",
-      "/warehouse-interior-space.jpg",
-      "/warehouse-parking-facility.jpg",
-      "/warehouse-security-entrance.jpg",
-      "/warehouse-office-area.jpg",
-    ],
-  },
-  "riverside-villas": {
-    name: "Riverside Villas",
-    type: "Luxury Villas",
-    category: "residential",
-    location: "Hebbal, Bangalore",
-    year: "2024",
-    team: "18 Professionals",
-    description: "Exclusive villa community with riverside views and premium amenities.",
-    overview:
-      "Riverside Villas is an exclusive gated community of luxury villas offering serene riverside living. Each villa is designed with contemporary elegance, featuring spacious layouts, private gardens, and premium finishes that blend seamlessly with the natural landscape.",
-    projectScope:
-      "Design and construction of 25 luxury villas (each 4,500 sq ft) in a gated community, including landscaping, clubhouse, swimming pool, gymnasium, children's play area, security systems, and comprehensive infrastructure.",
-    architecturalStyle: "Contemporary Tropical Architecture with Vernacular Elements",
-    constructionStatus: "completed",
-    materials: [
-      "Reinforced Concrete Construction",
-      "Natural Stone Cladding",
-      "Premium Wooden Doors & Windows",
-      "Italian Marble Flooring",
-      "High-Quality Ceramic Tiles",
-      "Premium Paint & Textures",
-      "Smart Home Integration",
-      "Solar Panel Systems",
-    ],
-    constructionMethods: [
-      "RCC Framed Construction",
-      "Basement & Foundation Work",
-      "Steel Truss Roofing",
-      "Waterproofing & Terrace Gardens",
-      "Modern Plumbing & Electrical Systems",
-      "Smart Home Automation",
-      "Landscape Architecture",
-      "Sustainable Energy Systems",
-    ],
-    features: [
-      "25 luxury villas with river views",
-      "Private gardens and terraces",
-      "Community clubhouse and pool",
-      "Gymnasium and spa facilities",
-      "Children's play areas",
-      "24/7 security and surveillance",
-      "Smart home automation",
-      "Rainwater harvesting",
-    ],
-    specifications: [
-      { label: "Total Units", value: "25 Villas" },
-      { label: "Villa Size", value: "4,500 sq ft each" },
-      { label: "Total Area", value: "112,500 sq ft" },
-      { label: "Construction Period", value: "30 Months" },
-      { label: "Completion Date", value: "January 2024" },
-      { label: "Investment", value: "₹95 Crores" },
-    ],
-    gallery: [
-      "/luxury-villa-riverside-architecture.jpg",
-      "/luxury-penthouse-bedroom-design.jpg",
-      "/luxury-penthouse-interior-living-room.jpg",
-      "/apartment-garden-landscape.jpg",
-      "/luxury-penthouse-terrace-view.jpg",
-      "/apartment-swimming-pool.png",
-      "/apartment-gymnasium.jpg",
-      "/luxury-penthouse-dining-area.jpg",
-    ],
-    nextProject: { slug: "heritage-restoration", name: "Heritage Restoration" },
-  },
-  "heritage-restoration": {
-    name: "Heritage Restoration",
-    type: "Heritage Building",
-    category: "restoration",
-    location: "Basavanagudi, Bangalore",
-    year: "2023",
-    team: "15 Professionals",
-    description: "Careful restoration of a heritage building preserving its historical charm.",
-    overview:
-      "This heritage restoration project involved the meticulous restoration of a 100-year-old colonial building while preserving its architectural heritage. The project combined traditional restoration techniques with modern structural reinforcement to ensure the building stands strong for future generations.",
-    projectScope:
-      "Complete restoration of a heritage building including structural reinforcement, facade restoration, interior refurbishment, modern utility integration, accessibility upgrades, and landscape restoration while maintaining historical authenticity.",
-    architecturalStyle: "Colonial Heritage Architecture (Restoration)",
-    constructionStatus: "completed",
-    materials: [
-      "Traditional Lime Mortar",
-      "Heritage Stone & Brickwork",
-      "Teak Wood Restoration",
-      "Period-Appropriate Finishes",
-      "Traditional Roofing Tiles",
-      "Original Window & Door Restoration",
-      "Heritage Paint & Coatings",
-      "Authentic Hardware Restoration",
-    ],
-    constructionMethods: [
-      "Structural Reinforcement with Modern Materials",
-      "Traditional Lime Mortar Application",
-      "Wood Restoration & Treatment",
-      "Stone Carving & Repair",
-      "Traditional Craftsmanship Techniques",
-      "Modern Utility Integration (Hidden)",
-      "Seismic Retrofitting",
-      "Moisture Control & Ventilation Systems",
-    ],
-    features: [
-      "Preserved original architectural features",
-      "Structural reinforcement for safety",
-      "Modern utilities integration",
-      "Restored heritage interiors",
-      "Accessibility improvements",
-      "Landscape restoration",
-      "Heritage-compliant lighting",
-      "Documentation and archival work",
-    ],
-    specifications: [
-      { label: "Building Age", value: "100+ Years" },
-      { label: "Total Area", value: "15,000 sq ft" },
-      { label: "Floors", value: "2 Floors + Attic" },
-      { label: "Construction Period", value: "18 Months" },
-      { label: "Completion Date", value: "November 2023" },
-      { label: "Investment", value: "₹12 Crores" },
-    ],
-    gallery: [
-      "/heritage-building-restoration-architecture.jpg",
-      "/luxury-penthouse-interior-living-room.jpg",
-      "/luxury-penthouse-bedroom-design.jpg",
-      "/luxury-penthouse-dining-area.jpg",
-      "/apartment-lobby-entrance.jpg",
-      "/luxury-penthouse-terrace-view.jpg",
-    ],
-    nextProject: { slug: "tech-park", name: "Tech Park Office" },
-  },
-  "tech-park": {
-    name: "Tech Park Office",
-    type: "Office Complex",
-    category: "commercial",
-    location: "Koramangala, Bangalore",
-    year: "2024",
-    team: "35 Professionals",
-    description: "Modern office complex designed for tech companies with collaborative spaces.",
-    overview:
-      "Tech Park Office is a cutting-edge commercial development designed to meet the evolving needs of modern technology companies. Spread across 200,000 sq ft, this office complex features open-plan work areas, collaborative zones, state-of-the-art meeting rooms, and wellness facilities. The building incorporates smart building technology, sustainable energy systems, and biophilic design principles to create an inspiring and productive work environment.",
-    projectScope:
-      "Complete design and construction of a modern office complex including structural development, interior fit-outs for 15 office suites, cafeteria and dining areas, conference facilities, rooftop recreational zone, underground parking for 300 vehicles, advanced IT infrastructure, and green building certifications across 200,000 sq ft.",
-    architecturalStyle: "Contemporary Glass Architecture with Smart Building Integration",
-    constructionStatus: "in-progress",
-    materials: [
-      "High-Performance Glass Curtain Wall System",
-      "Reinforced Concrete Structure (RCC)",
-      "Aluminum Composite Panels",
-      "Acoustic Ceiling Systems",
-      "Raised Access Flooring",
-      "Premium Carpet & Vinyl Flooring",
-      "Modular Office Partitions",
-      "Energy-Efficient LED Lighting",
-      "Solar Panel Arrays",
-      "Green Roof Systems",
-    ],
-    constructionMethods: [
-      "Core & Shell Construction",
-      "Curtain Wall Installation",
-      "MEP System Integration",
-      "Smart Building Management System",
-      "Structured Cabling Infrastructure",
-      "HVAC Zoning & Control",
-      "Sustainable Design Implementation",
-      "LEED Certification Process",
-      "Fire Safety & Security Systems",
-      "Advanced Access Control Integration",
-    ],
-    features: [
-      "200,000 sq ft of modern office space",
-      "Open-plan collaborative work areas",
-      "15 customizable office suites",
-      "Smart building automation system",
-      "High-speed fiber optic connectivity",
-      "Rooftop garden and recreation area",
-      "Multi-cuisine cafeteria and food court",
-      "Gymnasium and wellness center",
-      "300-car underground parking",
-      "EV charging infrastructure",
-      "Conference and meeting facilities",
-      "Break-out zones and lounges",
-      "LEED Gold pre-certification",
-      "24/7 security and monitoring",
-      "Bike storage and shower facilities",
-    ],
-    specifications: [
-      { label: "Total Area", value: "200,000 sq ft" },
-      { label: "Office Suites", value: "15 Units" },
-      { label: "Floors", value: "10 Floors + Basement" },
-      { label: "Parking Capacity", value: "300 Vehicles" },
-      { label: "Construction Period", value: "42 Months" },
-      { label: "Expected Completion", value: "September 2024" },
-      { label: "Investment", value: "₹180 Crores" },
-    ],
-    gallery: [
-      "/modern-office-building-glass-architecture.jpg",
-      "/industrial-warehouse-modern-design.jpg",
-      "/apartment-lobby-entrance.jpg",
-      "/apartment-gymnasium.jpg",
-      "/luxury-penthouse-interior-living-room.jpg",
-      "/warehouse-office-area.jpg",
-      "/apartment-swimming-pool.png",
-      "/luxury-penthouse-terrace-view.jpg",
-    ],
-    nextProject: { slug: "skyline-penthouse", name: "Skyline Penthouse" },
-  },
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projectsData[params.slug]
+  const project = getProjectBySlug(params.slug)
 
   if (!project) {
     return (
@@ -439,7 +49,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <section className="relative h-80 md:h-[500px] overflow-hidden">
         <div className="relative w-full h-full">
           <Image
-            src={project.gallery[0] || "/placeholder.svg"}
+            src={project.images?.[0]?.src || "/placeholder.svg"}
             alt={project.name}
             fill
             priority
@@ -456,7 +66,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <ArrowLeft size={18} className="md:w-5 md:h-5" />
             <span>Back to Projects</span>
           </Link>
-          <h1 className="text-3xl md:text-5xl font-bold mb-2">{project.name}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2">{project.title}</h1>
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-base md:text-lg opacity-90">{project.type}</p>
             <span className="hidden md:inline opacity-50">•</span>
@@ -622,12 +232,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Project Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {project.gallery.map((image, index) => (
+            {project.images?.map((img, index) => (
               <div key={index} className="overflow-hidden rounded-lg shadow-lg group">
                 <div className="relative h-64 md:h-80 overflow-hidden">
                   <Image
-                    src={image || "/placeholder.svg"}
-                    alt={`${project.name} - Gallery ${index + 1}`}
+                    src={img?.src || "/placeholder.svg"}
+                    alt={`${project.title} - Gallery ${index + 1}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 50vw"
