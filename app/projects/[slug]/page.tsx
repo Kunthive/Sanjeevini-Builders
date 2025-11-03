@@ -2,6 +2,7 @@ import { ArrowLeft, MapPin, Calendar, Users, CheckCircle, Building2, Ruler, Hamm
 import Link from "next/link"
 import Image from "next/image"
 import projectsData from "@/data/projects.json"
+import { Gallery } from "@/components/ui/Gallery"
 
 type Project = typeof projectsData.projects[number]
 
@@ -113,8 +114,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {/* In-page section nav (sticky on mobile) */}
+      <nav className="sticky top-16 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
+        <div className="max-w-6xl mx-auto px-4">
+          <ul className="flex gap-4 overflow-x-auto no-scrollbar py-3 text-sm">
+            <li><a href="#overview" className="px-3 py-1.5 rounded-full bg-muted hover:bg-muted/80">Overview</a></li>
+            <li><a href="#features" className="px-3 py-1.5 rounded-full bg-muted hover:bg-muted/80">Features</a></li>
+            <li><a href="#specs" className="px-3 py-1.5 rounded-full bg-muted hover:bg-muted/80">Specs</a></li>
+            <li><a href="#gallery" className="px-3 py-1.5 rounded-full bg-muted hover:bg-muted/80">Gallery</a></li>
+          </ul>
+        </div>
+      </nav>
+
       {/* Overview & Project Details */}
-      <section className="py-16 md:py-24 bg-background">
+      <section id="overview" className="scroll-mt-24 py-16 md:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">Project Overview</h2>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8">{project.overview}</p>
@@ -159,7 +172,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Features */}
-      <section className="py-16 md:py-24 bg-muted">
+      <section id="features" className="scroll-mt-24 py-16 md:py-24 bg-muted">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -174,7 +187,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Specifications */}
-      <section className="py-16 md:py-24 bg-background">
+      <section id="specs" className="scroll-mt-24 py-16 md:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Specifications</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -228,24 +241,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Gallery */}
-      <section className="py-16 md:py-24 bg-muted">
+      <section id="gallery" className="scroll-mt-24 py-16 md:py-24 bg-muted">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Project Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {project.images?.map((img, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-lg group">
-                <div className="relative h-64 md:h-80 overflow-hidden">
-                  <Image
-                    src={img?.src || "/placeholder.svg"}
-                    alt={`${project.title} - Gallery ${index + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <Gallery images={(project.images || []).map((i) => ({ src: i.src, alt: i.alt }))} />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Icons } from "@/components/icons"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -83,19 +84,14 @@ export default function Home() {
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">Building Dreams, Crafting Spaces</h1>
             <p className="text-base sm:text-lg md:text-xl mb-8 opacity-90">Premium Construction & Interior Design in Bangalore</p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Link
-                href="/projects"
-                className="px-6 sm:px-8 py-3 min-h-[44px] bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold flex items-center justify-center gap-2 group"
-              >
-                Explore Projects{" "}
-                <Icons.ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/contact"
-                className="px-6 sm:px-8 py-3 min-h-[44px] bg-white/20 text-white rounded-lg hover:bg-white/30 transition-colors font-semibold border border-white/30"
-              >
-                Get In Touch
-              </Link>
+              <Button asChild variant="secondary" className="min-h-[44px]">
+                <Link href="/projects" className="group">
+                  <span className="inline-flex items-center gap-2">Explore Projects <Icons.ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="min-h-[44px] bg-white/10 text-white border-white/30 hover:bg-white/20">
+                <Link href="/contact">Get In Touch</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -316,12 +312,11 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Dream Project?</h2>
           <p className="text-base md:text-lg mb-8 opacity-90">Let's bring your vision to life with our expertise and dedication</p>
-          <Link
-            href="/contact"
-            className="inline-block px-6 sm:px-8 py-3 min-h-[44px] bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold group"
-          >
-            Contact Us Today
-          </Link>
+          <Button asChild size="lg" className="min-h-[44px]">
+            <Link href="/contact" className="group">
+              <span className="inline-flex items-center gap-2">Contact Us Today <Icons.ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+            </Link>
+          </Button>
         </div>
       </section>
 
