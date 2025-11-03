@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import LoadingScreen from "@/components/loading-screen"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${inter.className} font-sans antialiased`}>
+        <LoadingScreen />
         <Navigation />
         {children}
         <Footer />
