@@ -3,32 +3,42 @@ import Link from "next/link"
 
 export default function About() {
   const stats = [
-    { label: "Years Experience", value: "10+" },
-    { label: "Projects Completed", value: "50+" },
+    { label: "Established", value: "2025" },
+    { label: "Service Areas", value: "6+" },
     { label: "Team Members", value: "25+" },
-    { label: "Client Satisfaction", value: "98%" },
+    { label: "Client Satisfaction", value: "100%" },
   ]
 
   const services = [
     {
       icon: Building2,
-      title: "Residential Construction",
-      description: "From luxury penthouses to multi-family apartments, we build homes that inspire.",
+      title: "Residential Apartments",
+      description: "Premium apartments designed for modern urban living with quality finishes and amenities.",
+    },
+    {
+      icon: Building2,
+      title: "Villa / Row House Development",
+      description: "Luxury villas and row houses that combine elegance with functional design.",
     },
     {
       icon: Briefcase,
-      title: "Commercial Projects",
-      description: "Modern warehouses, office spaces, and commercial hubs designed for efficiency.",
+      title: "Layout Formation & Land Development",
+      description: "Comprehensive land development and layout planning services for optimal land utilization.",
+    },
+    {
+      icon: Briefcase,
+      title: "Warehouse Development",
+      description: "Modern, efficient warehouse facilities designed for logistics and industrial needs.",
     },
     {
       icon: Zap,
-      title: "Interior Design",
-      description: "Innovative interior solutions that blend aesthetics with functionality.",
+      title: "Property Maintenance & Facility Management",
+      description: "End-to-end property maintenance and facility management services.",
     },
     {
       icon: Award,
-      title: "Project Management",
-      description: "End-to-end project management ensuring timely delivery and quality assurance.",
+      title: "Commercial / Mixed-use Projects",
+      description: "Innovative commercial and mixed-use developments that drive business growth.",
     },
   ]
 
@@ -44,10 +54,9 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 to-accent/10">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">About Sanjeevini Builders</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">About Sanjeevini Services Pvt Ltd</h1>
           <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
-            Since 2015, we've been transforming visions into reality across Bangalore with precision craftsmanship,
-            innovative design, and unwavering commitment to excellence.
+            Established in 2025, we are a new-age real estate developer from Bengaluru, shaping the city's skyline through trust, design, and enduring quality. From premium villas to modern warehouses, our projects blend thoughtful design, durability, and sustainability to deliver lasting value.
           </p>
         </div>
       </section>
@@ -58,24 +67,14 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-bold mb-4 text-primary">Our Mission</h2>
-              <p className="text-foreground/80 leading-relaxed mb-4">
-                To deliver exceptional construction and design solutions that exceed client expectations while
-                maintaining the highest standards of quality, safety, and sustainability.
-              </p>
               <p className="text-foreground/80 leading-relaxed">
-                We believe that every project tells a story, and we're committed to making yours extraordinary through
-                meticulous attention to detail and innovative problem-solving.
+                To build sustainable spaces that enrich lives and create long-term value for our customers and stakeholders. We are committed to delivering quality, transparency, and timely execution in every project we undertake.
               </p>
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-4 text-primary">Our Vision</h2>
-              <p className="text-foreground/80 leading-relaxed mb-4">
-                To be Bangalore's most trusted construction and design partner, recognized for our integrity, expertise,
-                and transformative projects.
-              </p>
               <p className="text-foreground/80 leading-relaxed">
-                We envision a future where our projects set new benchmarks in the industry, inspiring others and
-                creating lasting value for our clients and communities.
+                To be one of Bengaluru's most trusted and innovative real estate brands, delivering value through quality, transparency, and design excellence.
               </p>
             </div>
           </div>
@@ -100,8 +99,8 @@ export default function About() {
       {/* Services Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-primary">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-primary">Core Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon
               return (
@@ -151,32 +150,32 @@ export default function About() {
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-primary">
-            Why Choose Sanjeevini Builders
+            Why Choose Sanjeevini Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex gap-4">
               <CheckCircle className="text-accent flex-shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-lg mb-2">Proven Track Record</h3>
+                <h3 className="font-bold text-lg mb-2">Quality Construction</h3>
                 <p className="text-foreground/70">
-                  Over a decade of successful projects and satisfied clients across Bangalore.
+                  Premium materials and rigorous quality control ensure lasting durability.
                 </p>
               </div>
             </div>
             <div className="flex gap-4">
               <CheckCircle className="text-accent flex-shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-lg mb-2">Expert Team</h3>
+                <h3 className="font-bold text-lg mb-2">Transparency</h3>
                 <p className="text-foreground/70">
-                  Experienced architects, engineers, and designers dedicated to excellence.
+                  Complete transparency in pricing, timelines, and project execution.
                 </p>
               </div>
             </div>
             <div className="flex gap-4">
               <CheckCircle className="text-accent flex-shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-lg mb-2">Quality Assurance</h3>
-                <p className="text-foreground/70">Rigorous quality checks and adherence to international standards.</p>
+                <h3 className="font-bold text-lg mb-2">Design Excellence</h3>
+                <p className="text-foreground/70">Innovative designs that blend aesthetics with functionality.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -184,7 +183,7 @@ export default function About() {
               <div>
                 <h3 className="font-bold text-lg mb-2">Timely Delivery</h3>
                 <p className="text-foreground/70">
-                  Efficient project management ensuring projects are completed on schedule.
+                  Committed to on-time project completion with professional execution.
                 </p>
               </div>
             </div>

@@ -12,9 +12,9 @@ export default function Footer() {
               <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
                 <span className="text-primary font-bold">S</span>
               </div>
-              <span className="font-bold text-lg">Sanjeevini</span>
+              <span className="font-bold text-lg">Sanjeevini Services</span>
             </div>
-            <p className="text-sm opacity-90">Building Dreams, Crafting Spaces</p>
+            <p className="text-sm opacity-90">Building Trust. Shaping Skylines.</p>
           </div>
 
           {/* Quick Links */}
@@ -51,11 +51,9 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <Icons.MapPin size={16} />
                 <span>
-                  #28, 3rd Floor, 27th Main,
+                  #28, 27th Main, BTM Layout,
                   <br />
-                  1st Stage, BTM Layout,
-                  <br />
-                  Bengaluru 560068
+                  Bengaluru, Karnataka – 560068
                 </span>
               </li>
               <li className="flex items-center gap-2">
@@ -72,7 +70,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Icons.MessageCircle size={16} />
                 <a
-                  href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+                  href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"
@@ -107,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-4 text-center text-xs sm:text-sm opacity-75">
-          <p>&copy; 2025 Sanjeevini Builders. All rights reserved.</p>
+          <p>&copy; 2025 Sanjeevini Services Pvt Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

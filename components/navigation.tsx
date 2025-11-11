@@ -146,9 +146,9 @@ export default function Navigation() {
 
             <div className="mt-6 flex items-center justify-center gap-4 text-muted-foreground">
               <span className="text-xs">Quick contact:</span>
-              <a href="tel:+919876543210" className="px-3 py-2 rounded-lg border hover:bg-muted transition-colors text-sm">Call</a>
+              <a href="tel:+919481545865" className="px-3 py-2 rounded-lg border hover:bg-muted transition-colors text-sm">Call</a>
               <a
-                href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+                href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-2 rounded-lg border hover:bg-muted transition-colors text-sm"

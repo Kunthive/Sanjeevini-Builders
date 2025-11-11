@@ -76,7 +76,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Get In Touch</h1>
           <p className="text-lg text-foreground/80">
-            Have a project in mind? We'd love to hear from you. Let's discuss your vision and bring it to life.
+            Have a real estate project in mind? We'd love to hear from you. Let's discuss your vision and bring it to life with quality and transparency.
           </p>
         </div>
       </section>
@@ -98,11 +98,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
                     <p className="text-foreground/70">
-                      #28, 3rd Floor, 27th Main,
+                      #28, 27th Main, BTM Layout,
                       <br />
-                      1st Stage, BTM Layout,
-                      <br />
-                      Bengaluru 560068
+                      Bengaluru, Karnataka – 560068
                     </p>
                   </div>
                 </div>
@@ -149,7 +147,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">WhatsApp</h3>
                     <a
-                      href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+                      href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground/70 hover:text-primary transition-colors"
@@ -319,7 +317,7 @@ export default function Contact() {
       </section>
 
       <a
-        href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+        href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 z-40 flex items-center justify-center animate-pulse-subtle"

@@ -10,14 +10,14 @@ import LoadingScreen from "@/components/loading-screen"
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
 export const metadata: Metadata = {
-  title: "Sanjeevini Builders | Premium Construction & Interior Design in Bangalore",
+  title: "Sanjeevini Services Pvt Ltd | Premium Real Estate Development in Bengaluru",
   description:
-    "Building Dreams, Crafting Spaces. Premium construction and interior design services in Bangalore with 10+ years of expertise.",
+    "Building Trust. Shaping Skylines. Creating Spaces That Last. Premium residential apartments, villas, layouts, and warehouse development in Bengaluru since 2025.",
   generator: "v0.app",
   openGraph: {
-    title: "Sanjeevini Builders | Premium Construction & Interior Design",
+    title: "Sanjeevini Services Pvt Ltd | Real Estate Development",
     description:
-      "Transforming visions into reality across Bangalore with precision craftsmanship and innovative design.",
+      "Trusted real estate developer in Bengaluru specializing in residential apartments, villa communities, layout formation, and warehouse development.",
     type: "website",
   },
 }

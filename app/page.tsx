@@ -50,10 +50,10 @@ export default function Home() {
   ]
 
   const features = [
-    { icon: Icons.Award, label: "10+ Years Experience", value: "Proven Track Record" },
-    { icon: Icons.Users, label: "50+ Completed Projects", value: "Portfolio Excellence" },
-    { icon: Icons.Zap, label: "Expert Team", value: "Architects & Engineers" },
-    { icon: Icons.CheckCircle, label: "Quality Assured", value: "Timely Delivery" },
+    { icon: Icons.Award, label: "Established 2025", value: "New-Age Developer" },
+    { icon: Icons.Users, label: "Trusted Brand", value: "Quality & Transparency" },
+    { icon: Icons.Zap, label: "Expert Team", value: "Design Excellence" },
+    { icon: Icons.CheckCircle, label: "Sustainable Spaces", value: "Lasting Value" },
   ]
 
   return (
@@ -81,8 +81,8 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
           <div className="animate-fade-in-up">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">Building Dreams, Crafting Spaces</h1>
-            <p className="text-base sm:text-lg md:text-xl mb-8 opacity-90">Premium Construction & Interior Design in Bangalore</p>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">Building Trust. Shaping Skylines. Creating Spaces That Last.</h1>
+            <p className="text-base sm:text-lg md:text-xl mb-8 opacity-90">Premium Real Estate Development in Bengaluru</p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button asChild variant="secondary" className="min-h-[44px]">
                 <Link href="/projects" className="group">
@@ -104,11 +104,9 @@ export default function Home() {
       {/* About Preview */}
       <section id="about" className="py-14 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 text-center animate-slide-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">About Sanjeevini Builders</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">About Sanjeevini Services Pvt Ltd</h2>
           <p className="text-base md:text-lg text-foreground/80 mb-8 leading-relaxed max-w-prose mx-auto">
-            Since 2015, Sanjeevini Builders has been transforming visions into reality across Bangalore with precision
-            craftsmanship and innovative design. We believe that every structure tells a story, and we're committed to
-            making yours extraordinary.
+            Established in 2025, Sanjeevini Services Pvt Ltd is a Bengaluru-based real estate development company specializing in premium residential apartments, villa communities, layout formation, and warehouse development. With a strong foundation built on quality, transparency, and timely delivery, we are committed to creating sustainable spaces that enhance lifestyles and deliver long-term value.
           </p>
           <Link
             href="/about"
@@ -321,7 +319,7 @@ export default function Home() {
       </section>
 
       <a
-        href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Builders%2C%20I%20would%20like%20to%20discuss%20a%20project"
+        href="https://wa.me/918867301822?text=Hi%20Sanjeevini%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 z-40 flex items-center justify-center animate-fab-glow"

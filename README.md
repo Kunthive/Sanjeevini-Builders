@@ -1,8 +1,8 @@
-# Sanjeevini Builders - Website Redesign Documentation
+# Sanjeevini Services Pvt Ltd - Website Documentation
 
 ## Overview
 
-This document provides comprehensive documentation for the Sanjeevini Builders website, a modern, mobile-first construction and real estate website built with Next.js 16, React 19, TypeScript, and Tailwind CSS.
+This document provides comprehensive documentation for the Sanjeevini Services Pvt Ltd website, a modern, mobile-first real estate development website built with Next.js 16, React 19, TypeScript, and Tailwind CSS.
 
 ## Table of Contents
 
@@ -21,12 +21,12 @@ This document provides comprehensive documentation for the Sanjeevini Builders w
 ## Project Structure
 
 ```
-sanjeevini-builders/
+sanjeevini-services/
 ├── app/                          # Next.js App Router
 │   ├── page.tsx                  # Homepage with hero, projects, testimonials, sustainability
 │   ├── layout.tsx                 # Root layout with navigation and footer
 │   ├── about/
-│   │   └── page.tsx              # About page
+│   │   └── page.tsx              # About page with vision, mission, and services
 │   ├── projects/
 │   │   ├── page.tsx              # Projects listing with filtering
 │   │   ├── residential/
@@ -42,8 +42,10 @@ sanjeevini-builders/
 │   ├── footer.tsx                # Site footer
 │   ├── icons.tsx                 # Custom SVG icons
 │   └── ui/                       # Reusable UI components (Radix UI)
+├── data/
+│   └── projects.json             # Project data
 ├── public/                        # Static assets (images)
-└── styles/
+└── app/
     └── globals.css               # Global styles and Tailwind configuration
 ```
 
@@ -453,21 +455,44 @@ Ensure all `NEXT_PUBLIC_*` variables are set in your deployment platform's envir
 - Monitor form submission rates
 - Analyze user behavior patterns
 
-## Contact Information
+## Company Information
 
-**Sanjeevini Builders**
-- Address: #28, 3rd Floor, 27th Main, 1st Stage, BTM Layout, Bengaluru 560068
+**Sanjeevini Services Pvt Ltd**
+- Address: #28, 27th Main, BTM Layout, Bengaluru, Karnataka – 560068
+- Established: 2025
+- Tagline: "Building Trust. Shaping Skylines. Creating Spaces That Last."
 - Phone: 9481545865, 8073365694
 - WhatsApp: 8867301822
 - Email: info@sanjeevinibuilders.com
 
+## About the Company
+
+Sanjeevini Services Pvt Ltd is a Bengaluru-based real estate development company established in 2025. The firm specializes in premium residential apartments, villa communities, layout formation, and warehouse development. With a strong foundation built on quality, transparency, and timely delivery, Sanjeevini Services is committed to creating sustainable spaces that enhance lifestyles and deliver long-term value to its customers and investors.
+
+## Core Services
+
+- Residential Apartments
+- Villa / Row House Development
+- Layout Formation & Land Development
+- Warehouse Development
+- Property Maintenance & Facility Management
+- Commercial / Mixed-use Projects
+
+## Vision
+
+To be one of Bengaluru's most trusted and innovative real estate brands, delivering value through quality, transparency, and design excellence.
+
+## Mission
+
+To build sustainable spaces that enrich lives and create long-term value for our customers and stakeholders.
+
 ## License
 
-Copyright © 2025 Sanjeevini Builders. All rights reserved.
+Copyright © 2025 Sanjeevini Services Pvt Ltd. All rights reserved.
 
 ---
 
-**Documentation Version:** 2.0.0  
-**Last Updated:** January 2025  
+**Documentation Version:** 2.1.0
+**Last Updated:** January 2025
 **Maintained By:** Development Team
 
