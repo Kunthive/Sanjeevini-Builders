@@ -14,8 +14,9 @@ export async function generateStaticParams() {
   return (projectsData.projects || []).map((p) => ({ slug: p.slug }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const project = getProjectBySlug(slug)
   if (!project) return {}
   const title = `${project.title} | Projects`
   const description = project.seo?.description || project.summary || project.description || "Project details"
@@ -28,8 +29,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug)
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const project = getProjectBySlug(slug)
 
   if (!project) {
     return (
@@ -51,7 +53,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="relative w-full h-full">
           <Image
             src={project.images?.[0]?.src || "/placeholder.svg"}
-            alt={project.name}
+            alt={project.title}
             fill
             priority
             className="object-cover"
