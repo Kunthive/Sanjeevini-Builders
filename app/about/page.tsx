@@ -42,11 +42,10 @@ export default function About() {
     },
   ]
 
-  const team = [
-    { name: "Rajesh Kumar", role: "Founder & Lead Architect", image: "/professional-architect.png" },
-    { name: "Priya Sharma", role: "Design Director", image: "/professional-designer.png" },
-    { name: "Amit Patel", role: "Project Manager", image: "/professional-manager.png" },
-    { name: "Neha Singh", role: "Senior Engineer", image: "/professional-engineer.png" },
+  const directors = [
+    { name: "Diwakara V", role: "Director", image: "/professional-engineer.png" },
+    { name: "Vijay Kummar M", role: "Director", image: "/professionals/Vijay_Kumar.jpg" },
+    { name: "Vijay Kumar P", role: "Director", image: "/professionals/vijay_kumar_p.jpg" },
   ]
 
   return (
@@ -124,24 +123,35 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Leadership Team Section */}
       <section className="py-16 md:py-24 bg-muted">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-primary">Our Expert Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-primary">Leadership Team</h2>
+          <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto">
+            Meet the directors who guide our vision and ensure excellence in every project.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {directors.map((director, index) => (
               <div key={index} className="text-center">
                 <div className="mb-4 overflow-hidden rounded-lg">
                   <img
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
+                    src={director.image || "/placeholder.svg"}
+                    alt={director.name}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-primary mb-1">{member.name}</h3>
-                <p className="text-foreground/70 text-sm">{member.role}</p>
+                <h3 className="text-lg font-bold text-primary mb-1">{director.name}</h3>
+                <p className="text-foreground/70 text-sm">{director.role}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/team"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold"
+            >
+              Meet Our Full Team <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>

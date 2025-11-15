@@ -6,45 +6,52 @@ import { Icons } from "@/components/icons"
 export default function TeamPage() {
   const directors = [
     {
-      name: "Vijay Kummar M",
-      role: "Director",
-      image: "/professionals/Vijay_Kumar.jpg",
-      bio:
-        "With over 12 years of experience, Vijay leads operations and project delivery with a focus on quality and client satisfaction.",
-    },
-    {
       name: "Diwakara V",
       role: "Director",
       image: "/professional-engineer.png",
       bio:
-        "Divakar oversees engineering and execution, ensuring structural integrity and timely completion across all projects.",
+        "Oversees engineering and execution, ensuring structural integrity and timely completion across all projects.",
+    },
+    {
+      name: "Vijay Kummar M",
+      role: "Director",
+      image: "/professionals/Vijay_Kumar.jpg",
+      bio:
+        "With over 12 years of experience, leads operations and project delivery with a focus on quality and client satisfaction.",
+    },
+    {
+      name: "Vijay Kumar P",
+      role: "Director",
+      image: "/professionals/vijay_kumar_p.jpg",
+      bio:
+        "Drives strategic growth and business development, ensuring excellence in every project undertaken.",
     },
   ]
 
   const team = [
     {
-      name: "Appu",
-      role: "Lead Architect",
-      image: "/professional-architect.png",
-      bio: "Designs modern, human-centric spaces blending form and function.",
-    },
-    {
-      name: "Edwin Pinto",
-      role: "Senior Interior Designer",
-      image: "/professionals/Interior-Designer.jpg",
-      bio: "Creates refined interiors with durable materials and timeless style.",
-    },
-    {
-      name: "Vijay Kumar P",
+      name: "Sarvana Krishnan",
       role: "Project Manager",
-      image: "/professionals/vijay_kumar_p.jpg",
-      bio: "Coordinates schedules, budgets, and teams to deliver on time.",
+      image: "/professional-project-manager.png",
+      bio: "Coordinates schedules, budgets, and teams to ensure timely project delivery.",
     },
     {
       name: "Murthy",
       role: "Site Engineer",
       image: "/professional-engineer.png",
-      bio: "Leads on-site execution with a safety-first approach.",
+      bio: "Leads on-site execution with a safety-first approach and technical precision.",
+    },
+    {
+      name: "Edwin Pinto",
+      role: "Interior Head",
+      image: "/professionals/Interior-Designer.jpg",
+      bio: "Creates refined interiors with durable materials and timeless style.",
+    },
+    {
+      name: "Appu",
+      role: "Lead Architect",
+      image: "/professional-architect.png",
+      bio: "Designs modern, human-centric spaces blending form and function.",
     },
   ]
 
@@ -64,7 +71,7 @@ export default function TeamPage() {
       <section className="py-14 md:py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary text-center">Directors</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {directors.map((person, idx) => (
               <article key={idx} className="bg-card rounded-2xl border border-border overflow-hidden">
                 <div className="relative h-72 md:h-80">
