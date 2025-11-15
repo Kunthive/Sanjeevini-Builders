@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             href="/projects" 
             className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity w-fit text-sm md:text-base"
           >
-            <ArrowLeft size={18} className="md:w-5 md:h-5" />
+            <ArrowLeft className="w-[18px] h-[18px] md:w-5 md:h-5" />
             <span>Back to Projects</span>
           </Link>
           <h1 className="text-3xl md:text-5xl font-bold mb-2">{project.title}</h1>
@@ -106,28 +106,28 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <div className="flex items-start gap-3">
-              <MapPin className="text-accent flex-shrink-0 mt-1" size={20} />
+              <MapPin className="text-accent flex-shrink-0 mt-1 w-5 h-5" />
               <div>
                 <p className="text-xs md:text-sm text-foreground/70 mb-1">Location</p>
                 <p className="font-semibold text-sm md:text-base">{project.location}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Calendar className="text-accent flex-shrink-0 mt-1" size={20} />
+              <Calendar className="text-accent flex-shrink-0 mt-1 w-5 h-5" />
               <div>
                 <p className="text-xs md:text-sm text-foreground/70 mb-1">Year</p>
                 <p className="font-semibold text-sm md:text-base">{project.year}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Users className="text-accent flex-shrink-0 mt-1" size={20} />
+              <Users className="text-accent flex-shrink-0 mt-1 w-5 h-5" />
               <div>
                 <p className="text-xs md:text-sm text-foreground/70 mb-1">Team</p>
                 <p className="font-semibold text-sm md:text-base">{project.team}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+              <CheckCircle className="text-accent flex-shrink-0 mt-1 w-5 h-5" />
               <div>
                 <p className="text-xs md:text-sm text-foreground/70 mb-1">Status</p>
                 <p className="font-semibold text-sm md:text-base capitalize">
@@ -160,7 +160,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {/* Project Scope */}
           <div className="mt-10 p-6 md:p-8 bg-card rounded-lg border border-border">
             <div className="flex items-center gap-3 mb-4">
-              <Ruler className="text-accent" size={24} />
+              <Ruler className="text-accent w-6 h-6" />
               <h3 className="text-xl md:text-2xl font-bold text-primary">Project Scope</h3>
             </div>
             <p className="text-foreground/80 leading-relaxed">{project.projectScope}</p>
@@ -170,14 +170,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 bg-card rounded-lg border border-border">
               <div className="flex items-center gap-3 mb-3">
-                <Building2 className="text-accent" size={24} />
+                <Building2 className="text-accent w-6 h-6" />
                 <h3 className="text-lg font-bold text-primary">Architectural Style</h3>
               </div>
               <p className="text-foreground/80">{project.architecturalStyle}</p>
             </div>
             <div className="p-6 bg-card rounded-lg border border-border">
               <div className="flex items-center gap-3 mb-3">
-                <Shield className="text-accent" size={24} />
+                <Shield className="text-accent w-6 h-6" />
                 <h3 className="text-lg font-bold text-primary">Construction Status</h3>
               </div>
               <div className="flex items-center gap-2">
@@ -203,7 +203,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {project.features.map((feature, index) => (
               <div key={index} className="flex gap-4">
-                <CheckCircle className="text-accent flex-shrink-0" size={24} />
+                <CheckCircle className="text-accent flex-shrink-0 w-6 h-6" />
                 <p className="text-foreground/80">{feature}</p>
               </div>
             ))}
@@ -233,13 +233,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {/* Key Materials */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <Hammer className="text-accent" size={28} />
+                <Hammer className="text-accent w-7 h-7" />
                 <h2 className="text-2xl md:text-3xl font-bold text-primary">Key Materials</h2>
               </div>
               <div className="space-y-3">
                 {project.materials.map((material, index) => (
                   <div key={index} className="flex items-start gap-3 p-3 bg-card rounded-lg border border-border">
-                    <Sparkles className="text-accent flex-shrink-0 mt-0.5" size={18} />
+                    <Sparkles className="text-accent flex-shrink-0 mt-0.5 w-[18px] h-[18px]" />
                     <p className="text-foreground/80 text-sm md:text-base">{material}</p>
                   </div>
                 ))}
@@ -249,13 +249,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {/* Construction Methods */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <Building2 className="text-accent" size={28} />
+                <Building2 className="text-accent w-7 h-7" />
                 <h2 className="text-2xl md:text-3xl font-bold text-primary">Construction Methods</h2>
               </div>
               <div className="space-y-3">
                 {project.constructionMethods.map((method, index) => (
                   <div key={index} className="flex items-start gap-3 p-3 bg-card rounded-lg border border-border">
-                    <CheckCircle className="text-accent flex-shrink-0 mt-0.5" size={18} />
+                    <CheckCircle className="text-accent flex-shrink-0 mt-0.5 w-[18px] h-[18px]" />
                     <p className="text-foreground/80 text-sm md:text-base">{method}</p>
                   </div>
                 ))}

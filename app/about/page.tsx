@@ -109,7 +109,7 @@ export default function About() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                      <Icon className="text-primary" size={28} />
+                      <Icon className="text-primary w-7 h-7" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-2 text-primary">{service.title}</h3>
@@ -150,7 +150,7 @@ export default function About() {
               href="/team"
               className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold"
             >
-              Meet Our Full Team <ArrowRight size={20} />
+              Meet Our Full Team <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function About() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex gap-4">
-              <CheckCircle className="text-accent flex-shrink-0" size={24} />
+              <CheckCircle className="text-accent flex-shrink-0 w-6 h-6" />
               <div>
                 <h3 className="font-bold text-lg mb-2">Quality Construction</h3>
                 <p className="text-foreground/70">
@@ -173,7 +173,7 @@ export default function About() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle className="text-accent flex-shrink-0" size={24} />
+              <CheckCircle className="text-accent flex-shrink-0 w-6 h-6" />
               <div>
                 <h3 className="font-bold text-lg mb-2">Transparency</h3>
                 <p className="text-foreground/70">
@@ -182,14 +182,14 @@ export default function About() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle className="text-accent flex-shrink-0" size={24} />
+              <CheckCircle className="text-accent flex-shrink-0 w-6 h-6" />
               <div>
                 <h3 className="font-bold text-lg mb-2">Design Excellence</h3>
                 <p className="text-foreground/70">Innovative designs that blend aesthetics with functionality.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle className="text-accent flex-shrink-0" size={24} />
+              <CheckCircle className="text-accent flex-shrink-0 w-6 h-6" />
               <div>
                 <h3 className="font-bold text-lg mb-2">Timely Delivery</h3>
                 <p className="text-foreground/70">
@@ -210,7 +210,7 @@ export default function About() {
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold"
           >
-            Get In Touch <ArrowRight size={20} />
+            Get In Touch <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>

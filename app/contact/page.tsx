@@ -96,7 +96,7 @@ export default function Contact() {
                 {/* Address */}
                 <div className="flex gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                    <Icons.MapPin className="text-primary" size={24} />
+                    <Icons.MapPin className="text-primary w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
@@ -111,7 +111,7 @@ export default function Contact() {
                 {/* Phone */}
                 <div className="flex gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                    <Icons.Phone className="text-primary" size={24} />
+                    <Icons.Phone className="text-primary w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
@@ -129,7 +129,7 @@ export default function Contact() {
                 {/* Email */}
                 <div className="flex gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                    <Icons.Mail className="text-primary" size={24} />
+                    <Icons.Mail className="text-primary w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
@@ -145,7 +145,7 @@ export default function Contact() {
                 {/* WhatsApp */}
                 <div className="flex gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                    <Icons.MessageCircle className="text-primary" size={24} />
+                    <Icons.MessageCircle className="text-primary w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">WhatsApp</h3>
@@ -299,7 +299,7 @@ export default function Contact() {
                   className="w-full px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                  {!isSubmitting && <Icons.Send size={20} />}
+                  {!isSubmitting && <Icons.Send className="w-5 h-5" />}
                 </button>
 
                 <p className="text-sm text-foreground/70 text-center">
@@ -337,7 +337,7 @@ export default function Contact() {
         className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 z-40 flex items-center justify-center animate-pulse-subtle"
         title="Chat with us on WhatsApp"
       >
-        <Icons.MessageCircle size={28} />
+        <Icons.MessageCircle className="w-7 h-7" />
       </a>
     </main>
   )
