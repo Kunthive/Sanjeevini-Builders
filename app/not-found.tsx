@@ -31,7 +31,7 @@ export default function NotFound() {
             className="min-h-[44px]"
           >
             <Link href="/projects">
-              <Icons.Building className="w-4 h-4 mr-2" />
+              <Icons.Building2 className="w-4 h-4 mr-2" />
               View Projects
             </Link>
           </Button>
