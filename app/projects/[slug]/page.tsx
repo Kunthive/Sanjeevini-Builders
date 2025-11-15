@@ -48,6 +48,29 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main>
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="bg-muted/50 border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 py-3">
+          <ol className="flex items-center gap-2 text-sm">
+            <li>
+              <Link href="/" className="text-foreground/70 hover:text-foreground transition-colors">
+                Home
+              </Link>
+            </li>
+            <li className="text-foreground/40">/</li>
+            <li>
+              <Link href="/projects" className="text-foreground/70 hover:text-foreground transition-colors">
+                Projects
+              </Link>
+            </li>
+            <li className="text-foreground/40">/</li>
+            <li aria-current="page" className="text-foreground font-medium truncate">
+              {project.title}
+            </li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative h-80 md:h-[500px] overflow-hidden">
         <div className="relative w-full h-full">
