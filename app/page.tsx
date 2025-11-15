@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
+import projectsData from "@/data/projects.json"
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,29 +26,14 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
-  const projects = [
-    {
-      id: 1,
-      name: "Skyline Penthouse",
-      type: "Luxury Residential",
-      image: "/luxury-penthouse-interior.png",
-      link: "/projects/skyline-penthouse",
-    },
-    {
-      id: 2,
-      name: "Urban Vista Apartments",
-      type: "Multi-Family Residential",
-      image: "/modern-apartment-exterior.png",
-      link: "/projects/urban-vista",
-    },
-    {
-      id: 3,
-      name: "Metro Commercial Hub",
-      type: "Commercial Warehouse",
-      image: "/industrial-warehouse.png",
-      link: "/projects/metro-hub",
-    },
-  ]
+  // Get featured projects from projects.json
+  const projects = projectsData.projects.slice(0, 3).map((project) => ({
+    id: project.slug,
+    name: project.title,
+    type: project.type,
+    image: project.images?.[0]?.src || "/placeholder.svg",
+    link: `/projects/${project.slug}`,
+  }))
 
   const features = [
     { icon: Icons.Award, label: "Established 2025", value: "New-Age Developer" },

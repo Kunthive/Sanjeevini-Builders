@@ -1,47 +1,54 @@
 "use client"
 
-import type React from "react"
-
 import { useState, useEffect } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
 import { Icons } from "@/components/icons"
 import emailjs from "@emailjs/browser"
 
+// Zod validation schema
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits").optional().or(z.literal("")),
+  projectType: z.string().min(1, "Please select a project type"),
+  message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message is too long"),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    projectType: "",
-    message: "",
-  })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState<string>("")
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  })
 
   useEffect(() => {
     emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "")
   }, [])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     setSubmitStatus("idle")
+    setErrorMessage("")
 
     try {
       const templateParams = {
         to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@sanjeevinibuilders.com",
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        project_type: formData.projectType,
-        message: formData.message,
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone || "Not provided",
+        project_type: data.projectType,
+        message: data.message,
       }
 
       await emailjs.send(
@@ -51,18 +58,14 @@ export default function Contact() {
       )
 
       setSubmitStatus("success")
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        projectType: "",
-        message: "",
-      })
+      reset()
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000)
     } catch (error) {
       console.error("Error submitting form:", error)
+      const message = error instanceof Error ? error.message : "Failed to send message. Please try again."
+      setErrorMessage(message)
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
@@ -171,7 +174,7 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div>
@@ -181,13 +184,15 @@ export default function Contact() {
                     <input
                       type="text"
                       id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background"
+                      {...register("name")}
+                      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background ${
+                        errors.name ? "border-destructive" : "border-border"
+                      }`}
                       placeholder="John Doe"
                     />
+                    {errors.name && (
+                      <p className="text-sm text-destructive mt-1">{errors.name.message}</p>
+                    )}
                   </div>
 
                   {/* Email */}
@@ -198,13 +203,15 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background"
+                      {...register("email")}
+                      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background ${
+                        errors.email ? "border-destructive" : "border-border"
+                      }`}
                       placeholder="john@example.com"
                     />
+                    {errors.email && (
+                      <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -217,12 +224,15 @@ export default function Contact() {
                     <input
                       type="tel"
                       id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background"
+                      {...register("phone")}
+                      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background ${
+                        errors.phone ? "border-destructive" : "border-border"
+                      }`}
                       placeholder="9481545865"
                     />
+                    {errors.phone && (
+                      <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>
+                    )}
                   </div>
 
                   {/* Project Type */}
@@ -232,11 +242,10 @@ export default function Contact() {
                     </label>
                     <select
                       id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background"
+                      {...register("projectType")}
+                      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background ${
+                        errors.projectType ? "border-destructive" : "border-border"
+                      }`}
                     >
                       <option value="">Select a project type</option>
                       <option value="residential">Residential</option>
@@ -245,6 +254,9 @@ export default function Contact() {
                       <option value="renovation">Renovation</option>
                       <option value="other">Other</option>
                     </select>
+                    {errors.projectType && (
+                      <p className="text-sm text-destructive mt-1">{errors.projectType.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -255,26 +267,28 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
+                    {...register("message")}
                     rows={6}
-                    className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background resize-none"
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background resize-none ${
+                      errors.message ? "border-destructive" : "border-border"
+                    }`}
                     placeholder="Tell us about your project..."
                   />
+                  {errors.message && (
+                    <p className="text-sm text-destructive mt-1">{errors.message.message}</p>
+                  )}
                 </div>
 
                 {/* Status Messages */}
                 {submitStatus === "success" && (
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+                  <div role="alert" aria-live="polite" className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
                     Thank you! Your message has been sent successfully. We'll get back to you soon.
                   </div>
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
-                    There was an error sending your message. Please try again.
+                  <div role="alert" aria-live="assertive" className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+                    {errorMessage || "There was an error sending your message. Please try again."}
                   </div>
                 )}
 
