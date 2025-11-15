@@ -54,12 +54,12 @@ export default function ResidentialProjects() {
             href="/projects"
             className="inline-flex items-center gap-2 mb-6 text-foreground/70 hover:text-primary transition-colors text-sm md:text-base"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft className="w-[18px] h-[18px]" />
             Back to All Projects
           </Link>
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-lg">
-              <Home className="text-primary" size={32} />
+              <Home className="text-primary w-8 h-8" />
             </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-primary">Residential Projects</h1>
@@ -81,7 +81,7 @@ export default function ResidentialProjects() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="p-6 bg-card rounded-lg border border-border">
                 <div className="flex items-center gap-3 mb-3">
-                  <Building2 className="text-accent" size={24} />
+                  <Building2 className="text-accent w-6 h-6" />
                   <h3 className="font-bold text-lg">Design Excellence</h3>
                 </div>
                 <p className="text-foreground/70 text-sm">
@@ -91,7 +91,7 @@ export default function ResidentialProjects() {
               </div>
               <div className="p-6 bg-card rounded-lg border border-border">
                 <div className="flex items-center gap-3 mb-3">
-                  <Sparkles className="text-accent" size={24} />
+                  <Sparkles className="text-accent w-6 h-6" />
                   <h3 className="font-bold text-lg">Premium Materials</h3>
                 </div>
                 <p className="text-foreground/70 text-sm">
@@ -101,7 +101,7 @@ export default function ResidentialProjects() {
               </div>
               <div className="p-6 bg-card rounded-lg border border-border">
                 <div className="flex items-center gap-3 mb-3">
-                  <Home className="text-accent" size={24} />
+                  <Home className="text-accent w-6 h-6" />
                   <h3 className="font-bold text-lg">Smart Living</h3>
                 </div>
                 <p className="text-foreground/70 text-sm">
@@ -158,7 +158,7 @@ export default function ResidentialProjects() {
                         key={idx}
                         className="inline-flex items-center gap-1 px-2.5 py-1 bg-muted text-foreground/70 rounded-md text-xs"
                       >
-                        <Sparkles size={12} className="text-accent" />
+                        <Sparkles className="w-3 h-3 text-accent" />
                         {highlight}
                       </span>
                     ))}
@@ -178,7 +178,7 @@ export default function ResidentialProjects() {
 
                   <div className="mt-4 flex items-center gap-2 text-sm text-accent font-semibold group-hover:gap-3 transition-all">
                     View Project Details
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </Link>
@@ -220,7 +220,7 @@ export default function ResidentialProjects() {
               return (
                 <div key={index} className="p-6 bg-card rounded-lg border border-border hover:border-primary/50 transition-colors">
                   <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-                    <Icon className="text-primary" size={24} />
+                    <Icon className="text-primary w-6 h-6" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
                   <p className="text-foreground/70 text-sm">{feature.description}</p>
@@ -244,7 +244,7 @@ export default function ResidentialProjects() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold min-h-[44px]"
             >
-              Get In Touch <ArrowRight size={20} />
+              Get In Touch <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/projects"

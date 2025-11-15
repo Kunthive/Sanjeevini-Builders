@@ -50,7 +50,7 @@ export default function Projects() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 md:mb-6">
             <div className="flex items-center gap-2">
-              <Filter size={20} className="text-primary" />
+              <Filter className="w-5 h-5 text-primary" />
               <span className="font-semibold text-foreground text-sm md:text-base">Filter by Category:</span>
             </div>
             <div className="flex flex-wrap gap-2 md:gap-3 w-full sm:w-auto">
@@ -66,7 +66,7 @@ export default function Projects() {
                         : "bg-muted text-foreground hover:bg-muted/80"
                     }`}
                   >
-                    <Icon size={18} />
+                    <Icon className="w-[18px] h-[18px]" />
                     {category.label}
                   </button>
                 )
@@ -141,7 +141,7 @@ export default function Projects() {
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold mb-1">{project.title}</h3>
                     <div className="flex items-center gap-2 text-xs md:text-sm opacity-90">
-                      View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -182,7 +182,7 @@ export default function Projects() {
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold"
           >
-            Start Your Project <ArrowRight size={20} />
+            Start Your Project <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>

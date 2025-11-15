@@ -72,7 +72,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button asChild variant="secondary" className="min-h-[44px]">
                 <Link href="/projects" className="group">
-                  <span className="inline-flex items-center gap-2">Explore Projects <Icons.ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+                  <span className="inline-flex items-center gap-2">Explore Projects <Icons.ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></span>
                 </Link>
               </Button>
               <Button asChild variant="outline" className="min-h-[44px] bg-white/10 text-white border-white/30 hover:bg-white/20">
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-pulse-subtle">
-          <Icons.ChevronDown size={28} className="text-white" />
+          <Icons.ChevronDown className="w-7 h-7 text-white" />
         </div>
       </section>
 
@@ -98,7 +98,7 @@ export default function Home() {
             href="/about"
             className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold group"
           >
-            Learn More <Icons.ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            Learn More <Icons.ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>
@@ -140,7 +140,7 @@ export default function Home() {
                   <h3 className="text-xl md:text-2xl font-bold mb-2">{project.name}</h3>
                   <div className="flex items-center gap-2 text-sm opacity-90 group-hover:opacity-100 transition-opacity">
                     View Details{" "}
-                    <Icons.ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </Link>
@@ -165,7 +165,7 @@ export default function Home() {
                 >
                   <div className="flex justify-center mb-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
-                      <Icon className="text-primary" size={28} />
+                      <Icon className="text-primary w-7 h-7" />
                     </div>
                   </div>
                   <h3 className="font-bold text-lg mb-2 text-center">{feature.label}</h3>
@@ -215,7 +215,7 @@ export default function Home() {
               >
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Icons.Star key={i} className="text-yellow-400 fill-yellow-400" size={18} />
+                    <Icons.Star key={i} className="text-yellow-400 fill-yellow-400 w-[18px] h-[18px]" />
                   ))}
                 </div>
                 <p className="text-foreground/80 mb-6 leading-relaxed italic">&ldquo;{testimonial.content}&rdquo;</p>
@@ -268,7 +268,7 @@ export default function Home() {
                 >
                   <div className="flex justify-center mb-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
-                      <Icon className="text-primary" size={28} />
+                      <Icon className="text-primary w-7 h-7" />
                     </div>
                   </div>
                   <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
@@ -298,7 +298,7 @@ export default function Home() {
           <p className="text-base md:text-lg mb-8 opacity-90">Let's bring your vision to life with our expertise and dedication</p>
           <Button asChild size="lg" className="min-h-[44px]">
             <Link href="/contact" className="group">
-              <span className="inline-flex items-center gap-2">Contact Us Today <Icons.ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+              <span className="inline-flex items-center gap-2">Contact Us Today <Icons.ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></span>
             </Link>
           </Button>
         </div>
@@ -311,7 +311,7 @@ export default function Home() {
         className="fixed bottom-6 right-6 p-4 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 z-40 flex items-center justify-center animate-fab-glow"
         title="Chat with us on WhatsApp"
       >
-        <Icons.MessageCircle size={28} />
+        <Icons.MessageCircle className="w-7 h-7" />
         <span className="absolute -z-10 inset-0 rounded-full ring-2 ring-green-400/40" />
       </a>
     </main>
